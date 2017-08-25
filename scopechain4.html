@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function createFunctions(){
+			var result = new Array();
+		    for (var i=0; i < 10; i++){
+		    	result[i] = function(){
+		        return i;
+		        console.log('haha')
+		        };
+		    }
+		  return result;
+		  //console.log(result[1]);
+		}
+		//createFunctions();
+		//result是一个数组，每一个索引存了一个function，想要调用这个function就应该让每一个索引对应的函数执行，所以result[i]();
+		console.log(createFunctions()[1]());
+		// var funcs = createFunctions();
+		// for (var i=0; i < funcs.length; i++){
+		//   	console.log(funcs[i]());
+		// }
+
+
+		// var result = new Array(), i;
+		// result[0] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！
+		// result[1] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！
+		// ...
+		// result[9] = function(){ return i; }; //没执行函数，函数内部不变，不能将函数内的i替换！
+		// i = 10;
+		// funcs = result;
+		// result = null;
+		 
+		// console.log(i); // funcs[0]()就是执行 return i 语句，就是返回10
+		// console.log(i); // funcs[1]()就是执行 return i 语句，就是返回10
+		// ...
+		// console.log(i); // funcs[9]()就是执行 return i 语句，就是返回10
+	</script>
+</body>
+</html>
