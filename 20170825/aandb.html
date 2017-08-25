@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = 5;
+		function test(a){
+			a = 6;
+			//a相当于一个参数，没有意义。
+		};
+	
+		test();
+
+		var b = {
+			name:'lisi'
+		};
+
+		function test2(c){
+			c.name = 'wangwu'
+		};
+		//var a = 5;
+		test2(b);
+		console.log(b);
+	</script>
+</body>
+</html>

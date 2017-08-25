@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h2>AJAX</h2>
+		<button type="button" onclick="loadXMLDoc();">请求数据</button>
+		<div id="div1"></div>
+	</div>
+	<script>
+	function loadXMLDoc(){
+		var a = new	XMLHttpRequest();
+		a.open("GET","1.txt",true); 
+		a.send();	
+		a.onreadystatechange=function()
+		{
+		if	(a.readyState==4	&&	a.status==200)
+				{
+				document.getElementById("div1").innerHTML=a.responseText;
+				}
+		}
+	}
+	</script>
+</body>
+</html>
