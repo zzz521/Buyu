@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var aa = 'xiaoming';
+		// function a(){
+		// 	console.log(this.aa);
+		// }
+		// a();
+		//全局作用域或者普通函数中this指向全局对象window。
+
+
+		// var a = 13;
+		// var Person = {
+		// 	a:12,
+		// 	run:function(){
+		// 		console.log(this.a);
+		// 	}
+		// }
+		// Person.run();
+
+		// var name1 = 'zhangsan';
+		// function Person(name){
+		// 	var name1 = name;
+		// 	console.log(this.name1);
+		// }
+		// Person('lisi');//张三
+
+
+		var name1 = 'zhangsan';
+		function Person(name){
+			this.name1 = name;
+			//console.log(this.name1);
+		}
+		var p1 = new Person('lisi');
+		console.log(p1.name1);
+	</script>
+</body>
+</html>
