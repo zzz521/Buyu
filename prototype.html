@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Person(name, age, job){
+        //this.name = name;
+        this.age = age;
+        this.job = job;
+        //return this;
+	    }
+	    Person.prototype.brother = {
+	        name: 'wangxx'
+	    };
+	    Person.prototype.name = 'heihei';
+	    Person.prototype.aaa ={
+	    	bbb:'hahah'
+	    };
+	    var p1 = new Person('lisi');
+	    var p2 = new Person('zhaoliu');
+	    p2.brother = {
+	    	name:'tianqi'
+	    };
+	    //p2.name = 'sb'
+	    p2.aaa.bbb = 'hehehe';
+	   // console.log(p1.name);
+	    console.log(p1.brother.name);
+	</script>
+</body>
+</html>
