@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='app'></div>
+	<script src='react-15.3.1/build/react.js'></script>
+	<script src='react-15.3.1/build/react-dom.js'></script>
+	<script src='react-15.3.1/browser.js'></script>
+
+
+	<script type='text/babel'>
+		var Counter = React.createClass({
+			getInitialState:function(){
+				return{
+					msg:0
+				};
+			},
+			clickHandler:function(){
+				this.setState({
+					msg:this.state.msg + 1
+				});
+			},
+			render:function(){
+				return(
+					<div>
+						<button onClick={this.clickHandler}>click</button>
+						<p>当前点击次数：{this.state.msg}</p>
+					</div>
+					
+				)
+			}
+		});
+		var Counter2 = React.createClass({
+			getInitialState:function(){
+				return{
+					msg:0
+				};
+			},
+			clickHandler:function(){
+				this.setState({
+					msg:this.state.msg + 1
+				});
+			},
+			render:function(){
+				return(
+					<div>
+						<button onClick={this.clickHandler}>click</button>
+						<p>当前点击次数：{this.state.msg}</p>
+					</div>
+					
+				)
+			}
+		});
+		
+		ReactDOM.render(
+			<div>
+				<Counter/>
+				<Counter2/>
+			</div>,
+			document.getElementById('app')
+
+		)
+
+
+	</script>
+</body>
+</html>
