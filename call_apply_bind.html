@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function a(a,b){
+			console.log(this);
+			console.log(a);
+			console.log(b);
+		}
+		var b = {
+			name:'lisi',
+			age:13
+		}
+		a(1,3);
+		a.call(b,1,3);
+		a.apply(b,[1,3]);
+		// a.bind(b,1,3)();
+		a.bind(b)(1,3);
+	</script>
+</body>
+</html>
