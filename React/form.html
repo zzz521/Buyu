@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+        var FormComponent = React.createClass({
+            getInitialState:function () {
+                return{
+                    username:'士郎',
+                    password:'123456',
+                    occupation:'Archer'
+                }
+            },
+            subHandler:function (e) {
+                console.log(this.state.username);
+                console.log(this.state.password);
+                console.log(this.state.occupation);
+                e.preventDefault();
+            },
+//            usernameHandler:function (e) {
+//                this.setState({
+//                    username : e.target.value
+//                });
+//            },
+//            passwordHandler:function (e) {
+//                this.setState({
+//                    password : e.target.value
+//                });
+//            },
+//            occupationHandler:function (e) {
+//                this.setState({
+//                    occupation : e.target.value
+//                });
+//            },
+            inputHandler:function (e) {
+              if(e.target.name == 'name'){
+                  this.setState({
+                      username : e.target.value
+                  })
+              }else if(e.target.name == 'pwd'){
+                  this.setState({
+                      password : e.target.value
+              })
+              }else if(e.target.name == 'occ'){
+                  this.setState({
+                      occupation : e.target.value
+                  })
+              }
+            },
+            render:function(){
+                return(
+                        <form action="" onSubmit={this.subHandler}>
+                            <label>用户名：<input name="name" type="text" value={this.state.username} onChange={this.inputHandler}/></label><br/>
+                            <label>密码：<input name="pwd" type="password" value={this.state.password} onChange={this.inputHandler}/></label><br/>
+                            职业
+                            <select name="occ" id="" value={this.state.occupation} onChange={this.inputHandler}>
+                                <option value="Saber">Saber</option>
+                                <option value="Lancer">Lancer</option>
+                                <option value="Archer">Archer</option>
+                                <option value="Rider">Rider</option>
+                            </select>
+                            <input type="submit"/>
+                        </form>
+                )
+            }
+        });
+
+        ReactDOM.render(
+            <FormComponent/>,
+            document.getElementById('app')
+        );
+
+
+    </script>
+</body>
+</html>
