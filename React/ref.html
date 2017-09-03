@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id='app'></div>
+    <script src='react-15.3.1/build/react.js'></script>
+    <script src='react-15.3.1/build/react-dom.js'></script>
+    <script src='react-15.3.1/browser.js'></script>
+    <script type="text/babel">
+        var Input = React.createClass({
+            componentDidMount:function () {
+              this.refs.username.focus();//获取真实DOM
+              ReactDOM.findDOMNode(this.refs.user).focus();
+            },
+            render:function () {
+                return(
+                    <div>
+                        <input type="text" ref="username"/>
+                        <Input2  ref="user"/>
+                    </div>
+                )
+            }
+        });
+        var Input2 = React.createClass({
+            render: function () {
+                return (
+                        <input type="text"/>
+                )
+            }
+        });
+        ReactDOM.render(
+            <Input/>,
+            document.getElementById('app')
+        )
+    </script>
+</body>
+</html>
