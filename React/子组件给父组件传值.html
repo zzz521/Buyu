@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+        //父组件
+        var Choose = React.createClass({
+            getInitialState:function () {
+                return{
+                    num:0
+                }
+            },
+            change:function (zhuangtai) {
+                if(zhuangtai) {
+                    this.setState({
+                        num:this.state.num + 1
+                    }
+                )
+                }else{
+                    this.setState({
+                        num:this.state.num - 1
+                    })
+                }
+            },
+            render:function () {
+                var arr = ['Saber','Archer','Lancer','Rider'];
+                return(
+                    <div>
+                        <h1>你选择的职业的数量是：{this.state.num}</h1>
+                        <Occ occ={arr} changee={this.change}/>
+                    </div>
+                )
+            }
+        });
+        //子组件
+        var Occ = React.createClass({
+            changeHandler:function (e) {
+                //console.log(e.target.checked);
+                //子组件调用父组件传过来的方法，通过参数把值传到父组件
+                this.props.changee(e.target.checked);
+            },
+            render:function () {
+                var checkarr = [];
+                this.props.occ.forEach(function (elem,index) {
+                    checkarr.push(
+                        <label key={index}>
+                            {elem}:<input type="checkbox" onChange={this.changeHandler}/>
+                        </label>
+                  );
+                }.bind(this));
+                return(
+                    <div>{checkarr}</div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <Choose/>,
+            document.getElementById('app')
+        );
+
+        //总结：首先，父组件将数组中的值传给子组件，子组件遍历后显示，父组件中声明一个state
+        //然后子组件的状态发生了改变，想要改变父组件的内容时，需要先在父组件中定义一个方法
+        //然后将这个方法通过props传递给子组件，然后子组件中通过状态改变函数来给父组件传递一个参数
+        //然后父组件根据参数来进行逻辑活动。
+    </script>
+</body>
+</html>
