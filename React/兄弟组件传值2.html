@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+        var Com = React.createClass({
+            getInitialState:function () {
+                return{
+                    str:''
+                }
+            },
+            gaibian:function (occ) {
+                if(occ){
+                    this.setState({
+                        str:occ
+                    })
+                }
+            },
+            render:function () {
+                return(
+                    <div>
+                        <Com1 gaibian={this.gaibian}/>
+                        <Com2 data={this.state.str}/>
+                    </div>
+                )
+            }
+        });
+
+        var Com1 = React.createClass({
+            changeHandler:function (e) {
+                this.props.gaibian(e.target.value)
+            },
+            render:function () {
+                return(
+                        <select name="" id="" onChange={this.changeHandler}>
+                            <option value="Saber">Saber</option>
+                            <option value="Lancer">Lancer</option>
+                            <option value="Rider">Rider</option>
+                        </select>
+                )
+            }
+        });
+
+        var Com2 = React.createClass({
+            render:function () {
+                return(
+                    <div>{this.props.data}</div>
+                )
+            }
+        });
+
+        ReactDOM.render(
+            <Com/>,
+            document.getElementById('app')
+        )
+    </script>
+</body>
+</html>

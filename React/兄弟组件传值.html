@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    <script src="PubSub.js"></script>
+    <script type="text/babel">
+        var Com1 = React.createClass({
+            changeHandler:function (e) {
+                PubSub.publish('select',{
+                    ccc:e.target.value
+                })
+            },
+            render:function () {
+               return(
+                   <select name="" id="" onChange={this.changeHandler}>
+                       <option value="Saber">Saber</option>
+                       <option value="Lancer">Lancer</option>
+                       <option value="Rider">Rider</option>
+                   </select>
+               )
+            }
+        });
+
+        var Com2 = React.createClass({
+            getInitialState:function () {
+                return{
+                    occ:'Saber'
+                }
+            },
+            componentDidMount:function () {
+                PubSub.subscribe("select", function(msg, data){
+                    this.setState({
+                        occ: data.ccc
+                    });
+                }.bind(this));
+            },
+            render:function () {
+                return(
+                    <div>{this.state.occ}</div>
+                )
+            }
+        });
+
+        ReactDOM.render(
+            <div>
+                <Com1/>
+                <Com2/>
+            </div>,
+            document.getElementById('app')
+        )
+    </script>
+</body>
+</html>
