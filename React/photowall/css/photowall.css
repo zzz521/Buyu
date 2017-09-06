@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body,#app{
+    width: 100%;
+    height: 100%;
+}
+.stage{
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+    background: #cccccc;
+    /*position: relative;*/
+}
+.img-figure{
+    width: 320px;
+    height: 360px;
+    background: #ffffff;
+    text-align: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.img-figure img{
+    width: 240px;
+    height: 240px;
+}
