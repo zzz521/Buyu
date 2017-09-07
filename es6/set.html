@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var s = new Set();
+        s.add(1);
+        s.add(2);
+        s.add(3);
+        console.log(s);
+        s.delete(2);//删除的是数值，不是索引
+        console.log(s);
+        console.log(s.size);//set的长度
+
+        var a = new Set();
+        a.add(1);
+        a.add(1);
+        a.add(1);
+        a.add(3);
+        a.add(15);
+        console.log(a);//不能存重复的值，输出结果1，3，15
+        console.log(a.has(15));//判断set中是否有某一个值
+        a.clear();
+        console.log(a);//清空set
+
+        var b = new Set();
+        b.add(1);
+        b.add(2);
+        b.add(3);
+        b.add(4);
+        b.add(15);
+        var keys = b.keys();
+        console.log(keys);
+        var value = b.values();
+        console.log(value);//keys属性和values属性相同
+
+         for(key of keys){
+             console.log(key);
+         }//遍历出set中的值
+
+        var entries = b.entries();
+        for(ens of entries){
+            console.log(ens[0],ens[1]);
+        }//遍历出set中的keys和values
+        b.forEach(function (val,key) {
+            console.log(val,key);
+        })
+
+
+        var aaa = [1,5,6,2,6,3,3,6,3,1,7,8,7,5];
+        var ss = new Set(aaa);
+        console.log(ss);
+        var newSs = Array.from(ss);
+        console.log(newSs);//set方法直接去重
+    </script>
+</body>
+</html>

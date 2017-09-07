@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,2,3,3,5,6,7,7,8,8,8,9,9];
+        var arr1 = [];
+        arr1.push(111);
+        for(var i=0;i<arr.length;i++){
+            if(!(arr[i]==arr[i+1])){
+                console.log(arr[i]);
+                arr1.push(arr[i]);
+            }
+        };
+        arr = arr1;
+        console.log(arr);//对于顺序数组有效
+
+
+        var a = [1,5,6,2,6,3,3,6,3,1,7,8,7,5];
+        var b = [3];
+        console.log(b.indexOf(a[5]));//输出0代表重复
+        console.log(b.indexOf(a[3]));//输出-1代表没有重复
+        console.log(a.indexOf(5));//输出a数组中5元素的第一个索引，如果是-1则没有该元素
+        console.log(a.lastIndexOf(5));
+        var c = [];
+
+        for(var j=0;j<a.length;j++){
+            if(c.indexOf(a[j]) == -1)
+            {
+                c.push(a[j])
+            }
+        };
+        console.log(c);//对于非顺序排列数组
+
+
+        var d = [];
+        for(var k=0;k<a.length;k++){
+            if(k == a.indexOf(a[k])){
+                d.push(a[k]);
+            }
+        }
+        console.log(d);
+//检测a[k]元素出现的第一个下标是否为k，如果是则不重复
+
+       var ss = new Set(a);
+       console.log(ss);
+       var newSs = Array.from(ss);//将一个set结构转换成数组
+       console.log(newSs);//set方法直接去重
+
+
+
+
+
+    </script>
+</body>
+</html>
