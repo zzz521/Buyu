@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const a = 13;
+        console.log(a);
+//        a = 12;//TypeError: Assignment to constant variable. const一旦赋值，不可修改
+
+//        const foo;// Missing initializer in const declaration. const只声明不赋值也会报错
+
+        {
+            const Max = 15;
+            console.log(Max);//15
+        }
+//        console.log(Max);//Max is not defined.const和let相同，只在块级作用域有效。
+
+//        if (true) {
+//            console.log(MAX); // ReferenceError,不存在变量提升,存在暂时性死区
+//            const MAX = 5;
+//        }
+
+        var BB = 12;
+        let CC = 14;
+        const EE = 2;
+//        const EE = 3;//报错，不可重复声明
+//        const BB = 2;//报错，不可重复声明
+//        const CC = 1;//报错，不可重复声明
+
+        const Obj = {
+            name:'lisi',
+            age:13
+        };
+        console.log(Obj);//lisi
+//        Obj.name = 'zhangsan';
+//        console.log(Obj);//zhangsan
+        //const定义的对象指针地址不可改变，但是数据可以改变
+        Object.freeze(Obj);//对象冻结，修改属性添加属性不可用
+        Obj.name = 'liuwu';
+        console.log(Obj);
+
+
+        const ZZ = [];
+        ZZ.push('Hello'); // 可执行
+        ZZ.length = 0;    // 可执行
+        ZZ = ['Dave'];    // 报错
+        //上面代码中，常量a是一个数组，这个数组本身是可写的，
+        // 但是如果将另一个数组赋值给a，就会报错，因为改变了指针。
+    </script>
+</body>
+</html>

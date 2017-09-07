@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        {
+            var a = 5;
+        };
+        console.log(a);
+
+        if(true){
+            var c = 10;
+        };
+        console.log(c);
+
+        function aa() {
+            b = 10;
+        };
+        aa();
+        console.log(b);//函数中 如果不是用var 定义一个变量， 这个变量就是全局变量
+
+//        var j = 10;
+        for(var j=0;j<3;j++){
+            function ee() {
+                console.log(j);
+            }
+        };
+        ee();
+
+        //类似于{
+//              var j = 0;
+//             function ee() {
+//                console.log(j)
+//                }
+//         }
+//        var j = 1;
+//        function ee() {
+//            console.log(j)
+//        }
+//        }
+//        var j = 2;
+//        function ee() {
+//            console.log(j)
+//        }
+//        }//最后的函数执行后输出结果j覆盖前面的j
+    </script>
+</body>
+</html>

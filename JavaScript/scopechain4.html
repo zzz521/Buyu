@@ -17,9 +17,11 @@
 		  return result;
 		  //console.log(result[1]);
 		}
+		//匿名函数中的i指向全局
 		//createFunctions();
 		//result是一个数组，每一个索引存了一个function，想要调用这个function就应该让每一个索引对应的函数执行，所以result[i]();
 		console.log(createFunctions()[1]());
+		// result[5];
 		// var funcs = createFunctions();
 		// for (var i=0; i < funcs.length; i++){
 		//   	console.log(funcs[i]());
