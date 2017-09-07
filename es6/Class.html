@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //es5语法
+//        function Cat() {
+//            this.name = "xiaomao";
+//        };
+//        Cat.prototype.say = function () {
+//            console.log('miaomiao');
+//        };
+//
+//        function BsCat(){
+//
+//        }
+//
+//        BsCat.prototype = new Cat();
+//        var bsc = new BsCat();
+//        bsc.say();
+//        var c = new Cat();
+//        c.say();
+
+//es6中定义类的关键字class
+        class Cat{
+            constructor(name){
+                this.name = name;
+            }
+            say(){
+                console.log(this.name);
+            }
+        }
+
+        class BsCat extends Cat{
+            constructor(name,age){
+                super(name);//super代表父类中的constructor函数
+                this.age = age;
+            }
+            eat(){
+                console.log('eating');
+            }
+            static sleep(){
+                console.log('sleeping~~~')
+            }
+        }
+
+        var bsc = new BsCat('lala',12);
+        console.log(bsc.age);
+        bsc.say();
+        bsc.eat();
+//        bsc.sleep();//sleep is not a function
+        BsCat.sleep();//sleeping~~~
+        //static的生命周期和类相同
+//        var c = new Cat('mimi');
+//        c.say();
+    </script>
+</body>
+</html>
