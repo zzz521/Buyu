@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //map是一个键值对
+        var o;
+        var m = new Map();
+        m.set('1','a');
+        m.set(o,'hhha');
+        console.log(m.get(o));
+        console.log(m.get('1'));//get方式通过对应的键来找到值
+        m.set('2','b');
+        m.set('3','c');
+//        console.log(m);
+//        m.delete('1');//删除的键是字符串，所以必须用'';
+//        console.log(m);
+//        console.log(m.size);//长度；
+        console.log(m.has('1'));//has查询的是键值
+        console.log(m.has('a'));
+
+        var a = new Map();
+        a.set('1','a');
+        a.set('2','b');
+        a.set('3','c');
+//        console.log(a);
+//        a.clear();//清空map
+//        console.log(a);
+
+        var b = new Map();
+        b.set('1','a');
+        b.set('2','b');//将键为2的值变成b
+        b.set('2','ccc');//重新将键为2的值变成ccc  重新赋值
+        b.set('3','c');
+        b.set('4','c');//map的值可以重复，键不可以重复
+        console.log(b);
+
+        var keys = b.keys();//b的键
+        var values = b.values();//b的值
+        for(b of values){
+            console.log(b);
+        }
+        for(a of keys){
+            console.log(a);
+        }
+
+        var f = new Map()
+        var arr = [1,2];
+        var obj = {
+          'a':1
+        };
+        f.set('1','a');
+        f.set('2','b');
+        f.set(1,'c');//整形可以当键
+        f.set(arr,'d');//数组也可以当键
+        f.set(obj,'e');//对象也可以当键
+        f.set(undefined,'f');//一切都可以当键
+        console.log(f);
+        console.log(f.get([1,2]));//两个完全相同的数组但是指针不同，所以无法找到
+        console.log(f.get(arr));
+
+        f.forEach(function (value,key) {
+           console.log(value);
+        });
+        //map用来处理非常复杂的数据结构可以使用
+
+
+    </script>
+</body>
+</html>

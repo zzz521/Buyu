@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str='3[a2[c]]';
+		var matching1 = /[^\[]*\[(.*)\][^\]]*/;
+		var matching2 = /([^\[]*)\[(.*)\]([^\]]*)/;
+		var arr1=str.split(']');
+		var resultStr = "";
+		for(var i=0;i<arr1.length-1;i++){
+			if(i==arr1.length-1){
+				var last=str[i];
+			}else{
+				str=arr1[i]+']';
+				var cisu=str.replace(matching2,'$1');
+				var num=str.replace(matching1,'$1');
+				for(var j=0;j<cisu;j++){
+					resultStr+=num;
+				}
+				
+			}
+		}
+		console.log(resultStr);
+
+	</script>
+</body>
+</html>

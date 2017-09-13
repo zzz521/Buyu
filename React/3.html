@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var reg = /[^\[]*\[(.*)\][^\]]*/;
+		var reg1 = /([^\[]*)\[(.*)\]([^\]]*)/;
+		//var str = "1111[122]";
+		var str='3[a]2[bc]';
+		var zongstr="";
+		var arr=str.split(']');
+		for(var i=0;i<arr.length-1;i++){
+			if(i==arr.length-1){
+				var last=str[i];
+			}else{
+				str=arr[i]+']';
+				//console.log(str);
+				//console.log(str.replace(reg1,'$1'));
+				//console.log(str.replace(reg,'$1'));
+				var cisu=str.replace(reg1,'$1');
+				var num=str.replace(reg,'$1');
+				for(var j=0;j<cisu;j++){
+					zongstr+=num;
+				}
+				
+			}
+		}
+
+		console.log(zongstr);
+
+	</script>
+</body>
+</html>
