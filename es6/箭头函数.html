@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script>
+        var m = new Map();
+        m.set('1','a');
+        m.set('2','b');
+        m.set('3','c');
+        console.log(m);
+//        m.forEach(function (value,key) {
+//            console.log(value);
+//        });
+
+//        m.forEach((value,key)=>{
+//            console.log(key);
+//        });
+
+        //箭头函数好处简便，不用写function
+
+        m.forEach(function (val) {
+            console.log(val);
+        });
+
+//        m.forEach((val)=>{
+//            console.log(val);
+//        });
+//
+//        m.forEach(val=>{
+//            console.log(val);
+//        });//函数只有一个参数时，参数的括号可以省略
+
+//        m.forEach(val=>console.log(val));//当箭头函数执行体只有一句时，{}可以省略
+
+        //箭头函数没有参数或者两个及以上参数时，参数外面的括号不能省略
+
+
+
+        //箭头函数this永远指向定义时候的this
+        var aLi = document.getElementsByTagName('li');
+//        for(var i=0;i<aLi.length;i++){
+//            aLi[i].onclick = function () {
+//                console.log(this.innerHTML);
+//                setTimeout(function () {
+//                    console.log(this.innerHTML);
+//                }.bind(this),1000)
+//            }
+//        };//匿名函数中this是运行时指向，定时器中this指向window
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick = function () {
+                console.log(this.innerHTML);
+                setTimeout(()=>{
+                    console.log(this.innerHTML);
+                },1000)
+            }//箭头函数中this是定义时指向，在定义定时器时this指向的aLi[]
+        };
+
+        //在运行定时器时，匿名函数中的this指向了定时器，所以指向window
+        //而定时器没运行时，this指向的是点击事件，所以会产生差别
+    </script>
+</body>
+</html>

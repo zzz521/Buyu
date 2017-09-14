@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,html{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #000000;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+thead{
+    background: #3d444c;
+    color: #ffffff;
+}
+td,th{
+    border: 1px solid #e1e1e1;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#add{
+	display: block;
+	margin: 0 auto;
+}
+
+	</style>
+</head>
+<body>
+<span id="add">添加新商品</span>
+<table id="jsTrolley">
+    <thead><tr><th>名称</th><th>价格</th><th>操作</th></tr></thead>
+    <tbody>
+        <tr><td>产品1</td><td>10.00</td><td><a href="javascript:void(0);">删除</a></td></tr>
+        <tr><td>产品2</td><td>30.20</td><td><a href="javascript:void(0);">删除</a></td></tr>
+        <tr><td>产品3</td><td>20.50</td><td><a href="javascript:void(0);">删除</a></td></tr>
+    </tbody>
+    <tfoot><tr><th>总计</th><td colspan="2" id="total">60.70(3件商品)</td></tr></tfoot>
+</table>
+
+	<script>
+	var addBtn = document.getElementById('add');
+    var shopCar = document.getElementById('jsTrolley');
+    var total = document.getElementById('total');
+
+    function add(items) {
+        var tr = shopCar.tBodies[0].insertRow();
+        var td1 = tr.insertCell();
+        td1.innerHTML = items.name;
+        var td2 = tr.insertCell();
+        td2.innerHTML = new Number(items.price).toFixed(2);
+        var td3 = tr.insertCell();
+        td3.innerHTML = '<a href="javascript:void(0);">删除</a>';
+        bind();
+    }
+
+    function bind() {
+    	var tbody = shopCar.tBodies[0];
+        var totalPrice = 0;
+        for(var i=0; i<tbody.children.length; i++){
+            var tr = tbody.children[i];
+            totalPrice += parseFloat(tr.cells[1].innerText);
+        }
+        total.innerHTML = new Number(totalPrice).toFixed(2) + '('+tbody.children.length+'件商品)';
+    }
+
+ 
+
+    var i = 4;
+    addBtn.onclick = function (e) {
+        add({name: "产品"+i, price: Math.random()*90+10});
+        i++;
+    };
+    shopCar.onclick = function (e) {
+        if(e.target.tagName == 'A'){
+            var tr = e.target.parentNode.parentNode;
+            shopCar.tBodies[0].removeChild(tr);
+            bind();
+        }
+    };
+
+	</script>
+</body>
+</html>
