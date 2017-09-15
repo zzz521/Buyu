@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var name = 'jz';
+        var aa = 'hh';
+        var bb = 'ls';
+        //对象属性简写形式
+        var obj = {
+            name,
+            aa,//如果一个对象中的属性没有值的话，这个属性的值等于他的同名变量
+            age:12,
+            ls:'11111'
+        };
+        console.log(obj);
+        console.log(obj[bb]);//[]里面是变量，动态获取对象中的属性名
+
+        var a = 'my';
+        var b = 'age';
+        var c = 'dd';
+        var d = 'num';
+        var mynum = 'ooooo~'
+        var obj1 = {
+//            [a+d],//报错,
+            [a+b]:'adadasd',
+            mydd:'ohah'
+        };
+        console.log(obj1.myage);
+        console.log(obj1[a+c]);
+//        console.log(obj1.mynum)//不能一起用
+
+
+        var obj2 = {
+            a:4,
+            b:2
+        };
+        var obj3 ={
+            a:1,
+            c:6,
+            d:{
+                e:5
+            }
+        }
+
+        var oo =Object.assign(obj2,obj3);
+        //如果两个对象中有相同的属性，则该属性值被后面的参数的值覆盖
+        console.log(oo);//对象合并
+        console.log(obj2);//原对象本身也变了，两个对象合并成一个对象,但改变的仅仅限于第一个参数的对象
+        console.log(obj3);//第二个参数的对象不变
+
+//        obj3.c = 0;//oo不变
+//        obj2.b = 9;//oo中b变成9  前面的对象改变整体就变
+        obj3.d.e = 111;//oo改变，d的值是一个地址，地址没变值会改变
+        console.log(oo);
+
+
+        console.log(Object.keys(oo));//获取对象所有属性名
+        console.log(Object.values(oo));//获取对象所有属性值
+    </script>
+</body>
+</html>
