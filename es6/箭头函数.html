@@ -65,6 +65,28 @@
 
         //在运行定时器时，匿名函数中的this指向了定时器，所以指向window
         //而定时器没运行时，this指向的是点击事件，所以会产生差别
+
+
+        var obj = {
+            name:'zs',
+            say:function(){
+                console.log(this.name);
+            }
+        };
+
+        obj.say();
+
+        var obj1 = {
+            aa:'ls',
+            say:()=>{
+                console.log(this.aa)//指向window，对象中方法大多用匿名函数
+        }
+        }
+
+        obj1.say();
+
+        //总结：如果想在一个新的函数内部用到当前的this，就用箭头函数，
+        //如果新的函数要用函数自己的this，就不能用箭头函数
     </script>
 </body>
 </html>
