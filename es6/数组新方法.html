@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        //Array.from();将类似数组的结构转换为数组
+//        var arr = [1,2,3,4,5]
+//        var s = new Set(arr);
+//        var arr1 = Array.from(s);
+//        console.log(arr1);
+
+        var aLi = document.getElementsByTagName('li');
+//        aLi.push(1);//报错
+        console.log(aLi);//aLi不是数组，是NodeList 是一个类似数组的结构
+        var aLi1 = Array.from(aLi);
+        aLi1.push(1);//不报错
+        console.log(aLi1);//aLi1是数组
+
+
+        var obj = {
+            1:'aa',
+            2:'bb',
+            length:2
+        }
+        console.log(Array.from(obj));//[undefined,aa] length是2，数组的索引是根据对象属性名来的
+
+
+
+        var arr1 = new Array(1,2,3);
+        console.log(arr1);
+        var arr2 = new Array(2);
+        console.log(arr2);//undefinedx2; 当new方式创建数组只有一个元素的时候，就是undefined，数字代表几个元素
+        var arr3 = new Array('a');
+        console.log(arr3);//只有一个元素但是不是数字的时候正常创建数组
+
+        var arr4 = Array.of(3);
+        console.log(arr4);//es6新方法，输出[3]
+
+
+
+
+        var a = [1,2,3,4,5,6,7,8,9];
+        var b = a.copyWithin(2,4,6);//改变原数组
+//        console.log(a);//a = b
+//        console.log(b);//1,2,5,6,5,6,7,8,9
+        //第一个参数是改变的初始位置（索引） 第二个参数原数组复制的初始位置 第三个参数是复制的结束位置 不包括结束
+        //数组的长度不变。从改变的初始位置往后以此改变
+
+//        var c = a.fill(10);
+//        console.log(c);//将所有元素都变成参数中的元素，长度不变
+//        var d = a.fill(10,4,6);//第二个参数起始位置，第三个参数结束位置
+//        console.log(d);
+
+        var val = a.find(function (value,index) {
+//            value++;//可以做判定，返回5 5++>6  这个函数内可以写很复杂的算法
+            return value > 5;
+        })
+        var val1 = a.findIndex(function (value,index) {
+            return value > 5;//判断条件是值的大小
+        })
+        console.log(val);//返回满足>5的第一个元素 输出6
+        console.log(val1);//返回满足条件的第一个索引
+    </script>
+</body>
+</html>
