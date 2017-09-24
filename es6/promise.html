@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+//        alert('111');//不点击确认不会输出222 同步操作 会阻塞下面代码的运行
+//        console.log('222');
+
+
+        //promise 解决js回调嵌套  异步
+        //三种状态 等待 成功 失败
+        //初始化时是等待状态，只能从等待到成功或等待到失败，不能逆向
+//        var promise = new Promise(function (resolve,reject) {
+//            reject(1);//resolve代表成功,reject代表失败
+//        });
+
+
+        //只有成功或者失败时调用.then方法
+//        promise.then(function (res) {
+//            console.log(res);
+//        },function (res) {
+//            console.log(res+2);
+//        });//promise是成功状态时，调用then()的第一个参数的方法,失败调用第二个
+
+
+//        promise.then(function (res) {
+//            console.log(res);
+//        }).catch(function (data) {
+//            console.log('baocuo');
+//        });//当有多个.then方法时，每个.then方法中有两个参数，太麻烦，所以在最后面统一定义一个.catch代表错误
+
+
+        var promise1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                reject(1);
+            },300);
+        });
+
+        var promise2 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve(2);
+            },200);
+        });
+
+        var promise3 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve(3);
+            },5000);
+        });
+
+
+//        Promise.all([promise1,promise2,promise3]).then(function (res) {
+//            console.log(res);
+//        },
+//        function (res) {
+//            console.log('error');
+//        });//所有promise都执行完再返回
+        //.all方法就是将多个promise对象返回的值拼成一个数组输出 可以保证多个没关系的异步请求都完成之后执行某些逻辑
+        //当有一个promise对象失败时，整个请求就失败了
+        //返回的数组不是根据先执行完的顺序返回的，是根据添加的顺序返回的，先1再2再3
+
+
+        Promise.race([promise1,promise2,promise3]).then(function (res) {
+                console.log(res);
+            },
+            function (res) {
+                console.log('error');
+            });//只返回最快返回的，无论成功失败，定时器最快的 输出2 但是不会影响其余异步请求的执行，别的promise对象中的逻辑代码依旧会执行
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+//        var arr = [1,2];
+////        var [a,b] = [1,2];
+//        var [a,b] = arr;
+//        console.log(a,b,'aaa');
+//        //解构 把后边的数组分解成一个个的变量，与前面相对应 前后得是一种结构
+//
+//
+//        var [c,d] = [1,2,3];
+//        console.log(c,d)//输入1，2 从前往后按顺序
+//
+//        var [e,f,g,h] = [1,2,4];
+//        console.log(e,f,g,h);//h undefined
+
+//        var [a,b,c] = [1,2,[3,4]];
+//        console.log(a,b,c);//c代表[3,4];
+//
+//        var [a,b,[c,d]] = [1,2,[3,4]];
+//        console.log(a,b,c,d);//两次解构
+
+
+
+//        var [a,b=0] = [1,2];
+//        console.log(a,b);//输出1 2 b=0被重新赋值2；
+//
+//        var [c,d=0] = [1,undefined];
+//        var [e,f=2] = [5];
+//        console.log(c,d);//1 0
+//        console.log(c,d);//5 0  以上两种情况默认值会生效
+
+
+//
+//        var a = 10;
+//        var b = 15;
+//        //不通过第三个变量将a,b互换
+//
+//        a = a + b;
+//        b = a - b;
+//        a = a - b;
+//        console.log(a,b);//正常方式
+
+//        var [a,b] = [b,a];
+//        console.log(a,b);//解构
+
+//        a = [b,b=a][0]; //a = 数组索引为0的值，即a = b;然后将b = a;
+//        console.log(a,b);
+
+//
+//        var obj = {x:0,y:1};
+//        var {x,y} = obj;
+//        console.log(x,y);//0 1 ;
+
+
+//        var obj = {x:0,y:1};
+//        var {x:a,y:b} = obj;
+////        console.log(x,y);//x,y is not defined;
+////解构时正常情况下 var {x,b}在不写xy的值的时候等同于var {x:x,y:y}; 对象的新方法中，如果对象x没有值的话，寻找x的同名的值
+//        console.log(a,b);// 0 1
+//
+//
+//        //对象的结构是通过属性名对应的,数组是通过索引
+//        var {q,w} = obj;
+//        console.log(q,w);//undefined undefined
+
+//
+//        var obj = {z:1,y:2};
+//        var {x = 10,y} = obj;
+//        console.log(x,y);//10 2 x找不到同名的属性时undefined，这里将x赋值为10
+
+
+//        var {x,y:{z}} = {x:1,y:{z:3}};
+////        console.log(x,y);//y is not defined；y不会替换，因为y是一个对象,只服务里面的对象，本身不会被解构
+//        console.log(x,z);//1 3
+
+//        var {x,y:{z:b}} = {x:1,y:{z:3}};
+////        console.log(x,z);//1 3//z is not defined；
+//        console.log(x,b);//1 3
+
+
+//        var [a,b,c] = '1234';
+//        console.log(a,b,c);//1 2 3
+
+
+
+
+//        function fn([a,b]){
+//            console.log(a,b)
+//        };
+//
+//        var arr = [1,2];
+//        fn(arr);//1 2  调用arr的时候默认做了一次解构 [a,b]=[1,2]
+
+
+
+//        function aa([a=1,b=2,c=3]) {
+//            console.log(a,b,c);
+//        };
+//
+////        aa();//报错 因为结构不一样了
+//        aa([]);//1 2 3
+
+//        function bb(a=2,b=3) {
+//            console.log(a,b);
+//        };
+//        bb();//2 3
+
+    </script>
+</body>
+</html>
