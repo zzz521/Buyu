@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1" class="abc">111</div>
+    <div class="abc">222</div>
+
+
+    <div id="list" class="aa bb cc dd">123</div>
+    <script>
+        var a = document.querySelector('#div1');
+        console.log(a);
+        console.log(a.classList);
+        var b = document.querySelector('.abc');
+        console.log(b);//当选择class时只能获取第一个class类的dom对象
+
+        var c = document.querySelectorAll('.abc');
+        console.log(c);//获取全部类的时候用selectAll，返回一个数组
+        var d = document.querySelectorAll('#div1');
+        console.log(d);//返回一个数组
+
+
+
+        var list = document.querySelector('#list');
+        console.log(list.classList);//类的列表， 按空格分开，返回一个数组
+        console.log(list.classList.length);//长度
+
+
+        list.classList.add('ee');
+        console.log(list.classList);//添加一个类
+        list.classList.remove('aa');
+        console.log(list.classList);//删除一个类
+
+        list.classList.toggle('vv');
+        console.log(list.classList);
+        list.classList.toggle('bb');
+        console.log(list.classList);//toggle 有这个类就删除，没有这个类就添加
+
+
+
+
+    </script>
+</body>
+</html>
