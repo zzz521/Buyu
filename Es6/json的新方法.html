@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   var str = '{"name":"zhangsan","age":"12"}';
+   var obj = JSON.parse(str);
+   console.log(obj);
+//   var str0 = 'sadjkasdj';
+//   console.log(JSON.parse(str0));//报错，只能将内容是对象的字符串变成对象
+   //JSON.parse可以将字符串变成对象
+
+
+    var obj1 = {
+        name:"lisi",
+        age:13
+    };
+    var str1 = JSON.stringify(obj1);
+    console.log(str1);
+    var aa = 12;
+    var str2 = JSON.stringify(aa);
+    console.log(str2);
+    //JSON.stringify方法可以将一个别的数据类型变成字符串类型
+
+
+    //深度拷贝
+
+    var a = {name:'xx',age:11};
+//    var a1 = a;
+//    console.log(a1.name);//输出xx  将a对象的指针赋值给a1 a和a1指针相同，都指向同一个对象
+    //改变a.name的值时，a1.name的值也会发生变化
+    //深度拷贝是指改变a的值的时候a1不发生变化
+
+//    var a1 = {};
+//    a1.name = a.name;
+//    a1.age = a.age;
+//    a.name = 'yy';
+//    console.log(a1);//重新分配了一块空间，所以值不会改变
+
+//    var a1 = {};
+//    for(var p in a){
+//        console.log(p);//遍历属性名
+//        a1[p] = a[p];
+//    };
+//    a.name = 'yy';
+//    console.log(a1);
+
+   var b = {name:'xx',age:12,o:{aa:11,bb:22}};
+   var b1 = {};
+   for(var p in b){
+       console.log(p);//遍历属性名
+       b1[p] = b[p];
+   };
+   b.name = 'yy';
+   console.log(b1);
+   b.o.aa = 33;
+   console.log(b1.o.aa);//33 o是指针，将指针地址付给o
+
+
+    function clone(obj) {
+        var newobj = {};
+        for(var p in obj){
+            if(typeof obj[p] == 'object'){
+                newobj[p] = clone(obj[p]);
+            }else {
+                newobj[p] = obj[p];
+            }
+        }
+        return newobj;
+    }
+
+
+    var c = {
+        height:300,
+        width:400,
+        aa:{
+            a:11,
+            b:22
+        }
+    };
+    var c1 = clone(c);
+    console.log(c1);
+    c.aa.a = 13;
+    console.log(c1);
+
+
+
+    //
+   var d = {
+       height:300,
+       width:400,
+       aa:{
+           a:11,
+           b:22
+       }
+   };
+
+   var strd = JSON.stringify(d);
+   var d1 = JSON.parse(strd);
+   d.aa.a = 15;
+   console.log(d1);
+
+
+</script>
+</body>
+</html>
