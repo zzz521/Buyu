@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" data-name="xyz" data-abc="xxx" data-year-orz="123" data-abc-def-ghi="asdasd">123</div>
+<!--自定义的属性名字前面必须加data- 否非获取不到-->
+<script>
+    var aDiv = document.querySelector('#div1');
+    console.log(aDiv.dataset.name);//输出xyz  aDiv.dataset是一个对象
+    console.log(aDiv.dataset.year);//underfined
+    console.log(aDiv.dataset.yearOrz);//如果两个下划线，就得将第二个下划线后的名字首字母大写拼接在一起
+    console.log(aDiv.dataset.abcDefGhi);//道理同上，首字母大写拼接
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        name:'sad',
+        1241433:12,
+        a12:'asd',
+    };
+    console.log(obj);//对象直接量命名属性名字时，可以纯数字
+    obj.asjdkl = 13;
+    console.log(obj);
+    obj['%^%&'] = 'asdasd';
+    console.log(obj);
+//    通过[]操作符为对象添加属性时，属性名称可以是任何字符串（包括只包含空格的字符串和空字符串）；
+//    通过.操作符为对象添加属性时，属性名称必须是合法的标识符名称；
+//    如果属性名包含非法的标识符字符，则只能采用obj[“propertyName”]的形式；
+//    如果属性名是合法的标识符，读取时即可以采用obj.propertyName,也可以采用obj[“propertyName”]的形式；
+</script>
+</body>
+</html>

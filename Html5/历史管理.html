@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">随机彩票</button>
+    <div id="result"></div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var result = document.querySelector('#result');
+        var obj = {};
+        //原生js
+//        btn.onclick = function () {
+//            var arr = [];
+//            for(var i=0;i<7;i++){
+//                arr[i] = Math.floor(Math.random() * 36) + 1;
+//            }
+//            var str = Math.random();
+//            location.hash = str;//锚点
+//            obj[str] = arr;
+////          result.innerHTML = arr;
+//        };
+//
+//        window.onhashchange = function () {
+////            console.log(location.hash);
+//            var str = location.hash.substring(1);
+////            console.log(str);
+//            var value = obj[str];
+////            console.log(value);
+//            result.innerHTML = value;
+//        }
+
+
+
+
+        //html5
+
+        btn.onclick = function () {
+            var arr = [];
+            for(var i=0;i<7;i++){
+                arr[i] = Math.floor(Math.random() * 36) + 1;
+            }
+            history.pushState(arr,'');//pushState() 带有三个参数：一个状态对象，一个标题（现在被忽略了），以及一个可选的URL地址。
+//            状态对象是一个由 pushState()方法创建的、与历史纪录相关的JS对象。
+            result.innerHTML = arr;
+        }
+
+        window.onpopstate = function (e) {
+//            console.log(e.state)
+            result.innerHTML = e.state;
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
