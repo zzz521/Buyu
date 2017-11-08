@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        .left{
+            height:200px;
+            width:200px;
+            background: yellow;
+            float: left;
+        }
+        .right{
+            height:200px;
+            width:200px;
+            background: blue;
+            float: right;
+        }
+        /*.clear{*/
+            /*clear: both;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="left"></div>
+    <div class="right"></div>
+    <!--<div class="clear"></div>-->
+</div>
+
+清除浮动的几种方式：
+1.对父元素设置css高度
+2.clear:both:在父元素结束前设置一个空div，给这个div加一个clear:both的样式，或者在最后一个元素加一个:after
+3.给父元素设置一个overflow:hidden
+</body>
+</html>
