@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            height: 200px;
+            width:200px;
+            background: red;
+            margin-top: 100px;
+            /*border-top: 1px solid;*/
+            overflow: hidden;
+        }
+        .content{
+            height:100px;
+            width:100px;
+            background: blue;
+            margin-top:50px;
+        }
+
+        .top{
+            height:150px;
+            width:150px;
+            background: pink;
+            margin-bottom: 50px;
+        }
+        .bottom{
+            height:150px;
+            width:150px;
+            background: papayawhip;
+            margin-top: 100px;
+        }
+        .waibu{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+
+margin塌陷问题是经典的浏览器内核问题
+当两个元素嵌套在一起时，外层盒模型的margin-top取两个元素中margin-top较大的值
+因为在正常情况下，内层元素是相对于外层元素进行移动，但是这时内层元素却相对于
+整个文档进行移动，好像外层元素没有棚顶一样，所以叫margin塌陷问题
+
+<div class="wrapper">
+    <div class="content"></div>
+</div>
+
+
+此时的外层元素相对于整个文档的 margin-top = 100px
+
+解决方法：
+1.给外层元素加一个border
+尽量不要使用，因为改变了外观
+
+2.bfc–block format context 块级格式化上下文(bfc)
+触发bfc有四种方式
+overflow:hidden;
+display:inline-block;
+position:absolute;
+float:left;
+一般采用第一种方式，给父元素加
+3.设置padding
+
+
+
+margin合并
+具体表现为两个元素并列时，两者相隔的外边距取所设置的margin最大的值
+
+<div class="waibu"><div class="top"></div></div>
+<div class="bottom"></div>
+
+解决方法：bfc 将一个元素包起来，外层元素bfc
+
+
+一般情况下 margin塌陷需要解决，合并不解决
+</body>
+</html>
