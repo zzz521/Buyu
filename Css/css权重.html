@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div h1{
+            background: green;
+            color: yellow;
+        }
+        .lei{
+            color: black;
+        }
+        #aidi{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+当一个html元素存在多种样式时,最终效果取决于css选择器的权重和
+内联样式+1000,id+100,类或者伪类+10,元素名或者伪元素+1
+
+
+<div>
+        <h1 class="lei">
+            <p id="aidi">
+                <span style="color: blue">哈哈哈哈</span>
+            </p>
+        </h1>
+</div>
+
+</body>
+</html>
