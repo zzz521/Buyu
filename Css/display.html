@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1 li{
+            display: inline;
+        }
+        .div2 li{
+            display: inline-block;
+        }
+        .div3 li{
+            display: inline-block;
+            background: red;
+        }
+        .div3 .left .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+行内元素（inline） & 块元素（block）
+布局一般都用块元素，块元素可以设置宽高，行内元素不可以，但可以设置成绝对定位之后设置宽高
+
+块元素可以变成行内元素
+
+<ul class="div1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+
+行内块元素(inline-block)
+块元素在行内排列
+清除两元素间隙
+
+<ul class="div2">
+    <li>和</li><li>
+    天</li><li>
+    下</li>
+</ul>
+拼接元素即可消除
+
+
+三个li并列，都设置成inline-block。
+当对最左边的元素设置display:none;时，其他两个li会下沉到容器的底部。
+此时，需要对这两个li设置顶部对齐（vertical-align:top;）。
+
+<ul class="div3">
+    <li class="left"><div class="hidden">黄</div></li>
+    <li class="center"><div>鹤</div></li>
+    <li class="right"><div>楼</div></li>
+</ul>
+
+
+display:none;会隐藏元素，但是会清除占用的空间
+<div>
+    <h1 style="background:red; display: none;">今天</h1>
+    <h1 style="background:green;">真好</h1>
+</div>
+
+
+</body>
+</html>
