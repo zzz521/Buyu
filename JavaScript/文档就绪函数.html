@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            console.log(oDiv.innerHTML);
+            //当script标签在head中时，需要使用window.onload函数，先加载页面，后执行window.onload中函数
+        }
+        window.onload = function () {
+            console.log(123456);
+        }//多个window.onload会覆盖前面的window
+
+
+        $(document).ready(function () {
+            var oDiv = document.getElementById('div1');
+            console.log(oDiv.innerHTML);
+        })//jq.ready也可以实现window.onload方法，而且速度更快
+        $(document).ready(function () {
+            console.log(123345);
+        })//多个时不会覆盖前面的
+
+        $(function () {
+            var oDiv = document.getElementById('div1');
+            console.log(oDiv.innerHTML);
+        })//等同于$().ready()
+    </script>
+</head>
+<body>
+<!--<script>-->
+<!--window.onload = function () {-->
+<!--var oDiv = document.getElementById('div1');-->
+<!--console.log(oDiv.innerHTML);-->
+<!--//当script标签在html元素上面时，同理
+<!--}-->
+<!--</script>-->
+<div id="div1">
+    aaa
+</div>
+<script>
+    var oDiv = document.getElementById('div1');
+    console.log(oDiv.innerHTML);
+    //当script标签在body中html元素下面时，先加载页面，再加载script标签
+</script>
+</body>
+</html>

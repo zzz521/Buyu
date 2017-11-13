@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        var cvs = document.querySelector('#myCanvas');
+        var cxt = cvs.getContext('2d');
+//        getContext("2d") 对象是内建的 HTML5 对象，拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+//        cxt.fillStyle = 'red';//填充色
+//        cxt.fillRect(0,0,150,75);
+//        在画布上绘制 150x75 的矩形，从左上角开始 (0,0)。
+
+//       //绘制线条
+//        cxt.moveTo(10,10);//把路径移动到画布中的指定点，不创建线条。
+//        cxt.lineTo(150,50);//添加一个新点，然后在画布中创建从该点到最后指定点的线条。
+//        cxt.lineTo(10,50);
+//        cxt.lineTo(30,60);
+//        cxt.stroke();//stroke 绘制已定义的路径
+
+
+        //绘制圆
+//        cxt.fillStyle="#FF0000";
+//        cxt.beginPath();//开始一条路径，或重置当前的路径。
+//        cxt.arc(70,18,15,0,Math.PI*2,true);//arc(x,y,r,sAngle,eAngle,counterclockwise);
+//        //x,y圆的中心坐标，r半径，s起始角，e结束角，counterclockwise可选，false顺时针画，true逆时针
+//        cxt.closePath();//	创建从当前点回到起始点的路径。
+//        cxt.fill();
+
+
+
+        //渐变色
+//        var grd=cxt.createLinearGradient(0,0,175,50);//创建线性渐变
+//        grd.addColorStop(0,"#FF0000");//规定渐变对象中的颜色和开始位置。
+//        grd.addColorStop(1,"#00FF00");//规定渐变对象中的颜色和停止位置。第一个参数是范围，0到1之间
+//        cxt.fillStyle=grd;
+//        cxt.fillRect(0,0,175,50);
+
+
+
+
+    </script>
+</body>
+</html>
