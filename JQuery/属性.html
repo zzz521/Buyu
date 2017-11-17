@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    aaa
+</div>
+<input type="checkbox" checked/>
+<input type="checkbox" />
+<script src="jquery-1.12.4.js"></script>
+<script>
+    console.log($('#div1').attr('id'));
+//    $('#div1').attr('id','div2');
+    //当一个参数时，可以输出被选中元素的属性，两个参数时，第二个参数替换原有属性
+    $('#div1').removeAttr('id');//移除属性
+    $('#div1').prop()
+    //prop修改特性,例如checked
+</script>
+</body>
+</html>

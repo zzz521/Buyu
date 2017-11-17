@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="aaa">
+    <!--v-model实现双向绑定-->
+    {{aaa}}
+    <!--引用vue对象里msg的数据-->
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',//vue对象的作用范围
+        data:{
+            msg:'123',//改变msg的值，dom也随之改变
+            aaa:'456'//和v-model同名，做绑定
+        }
+    });
+</script>
+</body>
+</html>
