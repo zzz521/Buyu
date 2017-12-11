@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="ul1"><p></p><span></span><h1></h1></div>
+	<script>
+		var oDiv = document.getElementById('ul1');
+		console.log(oDiv.childNodes[0]);// p
+		console.log(oDiv.firstChild);// p
+		//node.firstChild == node.childNodes[0];
+
+		console.log(oDiv.childNodes[oDiv.childNodes.length-1]);//h1
+		console.log(oDiv.lastChild);//h1
+		//node.lastChild == node.childNodes[node.childNodes.length-1];
+
+	</script>
+</body>
+</html>

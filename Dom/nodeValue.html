@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="abc">今天是个好日子</p>
+	<script>
+		var abc = document.getElementById('abc');
+		console.log(abc.nodeValue);//null
+		//包含在p元素里面的文本是p元素的第一个子节点，想要获取p元素的文本值，需要检索p元素的子节点的nodeValue值
+		console.log(abc.childNodes[0].nodeValue);
+		console.log(abc.childNodes);//只有一个文本节点
+	</script>
+</body>
+</html>

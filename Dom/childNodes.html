@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li class="asd">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <!--这是一个注释-->
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <script>
+        var Ul1 = document.getElementById('ul1');
+        var uLi = Ul1.getElementsByTagName('li');
+        console.log(Ul1.childNodes);//长度19的数组
+        //childNodes返回一个数组，这个数组包含给定元素的全体子元素
+        //包含html节点，文本节点，注释节点等
+        //元素中的空格回车被视为text(文本)
+        //例子中包括ul的一个文本节点，8个li元素节点，8个li文本节点,一个注释节点，一个注释文本节点
+        //属性节点的获取需要使用getAttribute
+        console.log(uLi.childNodes);//undefined 对象数组没有元素节点的属性
+        console.log(uLi[0].childNodes);//包括了一个文本节点
+        console.log(Ul1.childNodes.length);
+
+    </script>
+</body>
+</html>

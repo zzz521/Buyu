@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1" class="div2" name="zhangsan"></div>
+    <div class="div2"></div>
+
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        console.log(typeof oDiv1);//object
+        console.log(oDiv1.length);//undefined 对象没有长度
+        var aDiv2 = document.getElementsByTagName('div');
+        console.log(typeof aDiv2);//object  一个对象数组 数组中每个元素都是对象
+        console.log(aDiv2.length);//2
+
+
+        console.log(document.getElementsByTagName('*'));//获得文档中所有元素节点
+
+        console.log(oDiv1.getAttribute('id'));//获取dom对象的属性值 参数是属性名
+//        console.log(aDiv2.getAttribute('class'));//报错
+        console.log(aDiv2[1].getAttribute('class'));
+        //getAttribute只能通过一个元素节点对象调用，数组不行
+
+        oDiv1.setAttribute('title','this is a title');//对属性节点做出添加或者修改
+        //只能通过一个元素节点调用，数组不行
+        //第一个参数属性名，第二个参数属性值
+        console.log(oDiv1.getAttribute('title'));
+
+        oDiv1.setAttribute('name','lisi');//修改
+        console.log(oDiv1.getAttribute('name'));
+
+
+
+
+    </script>
+</body>
+</html>

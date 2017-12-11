@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="div1">
+		<h1 id="title1">呵呵呵</h1>
+	</div>
+	<script>
+		//parentElement(共同的父元素).insertBefore(newElement(新元素),targetElement(原有元素))
+		//不必知道parentElement元素是什么 targetElement.parentNode = parentElement
+
+		var oDiv = document.getElementById('div1');
+		var title1 = document.getElementById('title1');
+		var a = document.createElement("h1");
+		var txt = document.createTextNode("哈哈哈");
+		a.appendChild(txt);
+		oDiv.insertBefore(a,title1);
+
+	</script>
+</body>
+</html>

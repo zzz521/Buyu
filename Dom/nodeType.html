@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1" abc="haha">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script>
+		var oUl = document.getElementById('ul1');
+		console.log(oUl.nodeType);
+		//元素节点的nodeType值是1
+		console.log(oUl.childNodes);
+		console.log(oUl.childNodes.length);
+		console.log(oUl.childNodes[0].nodeType);
+		//文本节点的nodeType值是3
+		console.log(oUl.getAttribute('abc').nodeType);
+		//属性节点的nodeType值是2
+
+		//调用方法    node.nodeType
+	</script>
+</body>
+</html>

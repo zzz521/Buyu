@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#" onclick="show(this)">哈哈哈哈~</a>
+<div id="div1" onclick="show(this)">吼吼吼吼~~~~</div>
+<h1 id="hehe">嘿嘿嘿嘿</h1>
+
+<script>
+    function show(elem) {
+        console.log(elem);
+    }
+
+    var hehe = document.getElementById('hehe');
+    hehe.onclick = function () {
+        console.log(this);
+    }
+</script>
+</body>
+</html>

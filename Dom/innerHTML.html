@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		<p>this is content.</p>
+	</div>
+	<script>
+		//innerHTML可以读可以写
+		//读
+		var oDiv1 = document.getElementById('div1');
+		console.log(oDiv1.innerHTML);//<p>this is content.</p>
+		console.log(typeof (oDiv1.innerHTML));//string
+
+
+		//写
+		oDiv1.innerHTML += "<h1>标题</h1>";
+
+		//插入大段html内容时使用
+	</script>
+</body>
+</html>
