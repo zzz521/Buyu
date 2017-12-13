@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#myDiagramDiv{
+			height: 600px;
+			width: 600px;
+			background: #DAE4E4;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiagramDiv">
+		
+	</div>
+
+	<script src="js/go.js"></script>
+	<script>
+		var $ = go.GraphObject.make;
+		var myDiagram = $(go.Diagram,"myDiagramDiv",
+			{
+				initialContentAlignment:go.Spot.Center,//中心位置所在坐标
+				"undoManager.isEnabled":true//启用ctrl-Z撤销和ctrl-Y重做快捷键
+			});
+		//Diagram 模型图 
+
+		var myModel = $(go.Model); //创建Model对象
+		myModel.nodeDataArray = [
+			{ key: "TOMA"},
+			{ key: "lilei"},
+			{ key: "hanmeimei"},
+			{ key: "dadiaomengmei"},
+			{ key: "shabi"}  //json属性对象 根据属性值设置节点的相应属性
+		];
+		//模型图的基本数据描述了基本实体及其属性和关系，是图的结构零件图
+		myDiagram.model = myModel;
+
+
+		myDiagram.nodeTemplate = $(go.Node,$(go.TextBlock,new go.Binding("text","key")));
+		//需要显示文本可以用TextBlocks 设置形状可以使用Shapes
+		//TextBlocks不能包含图片， Shape不能包含文本
+
+
+		myDiagram.nodeTemplate = 
+		$(go.Node,"Vertical",//第二个参数是Node/Panel组件分布的布局，垂直Vertical，横向布局Horizontal
+		{
+			lacationSpot:go.Spot.Center//设置节点的一些参数
+		},
+		new go.Binding("location","loc"),//修改节点坐标
+		//绑定节点坐标Node.laction为Node.data.loc的值，Model对象可以通过Node.data.loc获取和设置Node.lacation(修改形状)
+		
+
+		$(go.Shape,
+			"RoundedRectangle",//定义形状，这是圆角矩形
+			{},//shape的参数，宽高颜色等等
+			new go.Binding("figure","fig")),
+
+		$(go.TextBlock,
+			"default text",//文本域默认显示文本
+			{},//设置默认字体样式
+			new go.Binding("text","key"))
+		//绑定TextBlock.Text属性为Node.data.key的值，Model对象可以通过Node.data.key获取和设置TextBlock(修改文本)
+		);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			height: 600px;
+			width: 600px;
+			background: #DAE4E4;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+	<script src="js/go.js"></script>
+	<script>
+		
+      var $ = go.GraphObject.make;
+      var mydiv = $(go.Diagram,"div1",
+		{
+			initialContentAlignment:go.Spot.Center,
+			"undoManager.isEnabled":true
+		});
+
+
+
+      mydiv.nodeTemplate =
+        $(go.Node, "Auto", 
+          $(go.Shape, "RoundedRectangle",  
+            new go.Binding("fill", "color")),
+          $(go.TextBlock,
+            { margin: 3 }, 
+            new go.Binding("text", "key"))
+        );
+
+    
+      mydiv.model = new go.GraphLinksModel(
+      [ 
+        { key: "Alpha", color: "lightblue" },
+        { key: "Beta", color: "orange" },
+        { key: "Gamma", color: "lightgreen" },
+        { key: "Delta", color: "pink" }
+      ],
+      [
+        { from: "Alpha", to: "Beta" },
+        { from: "Alpha", to: "Gamma" },
+        { from: "Beta", to: "Beta" },
+        { from: "Gamma", to: "Delta" },
+        { from: "Delta", to: "Alpha" }
+      ]);
+
+      
+	</script>
+</body>
+</html>

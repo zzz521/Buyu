@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		<h1 id="h1">hehe~</h1>
+		<span>lakaka</span>
+		
+	</div>
+	<script>
+	//当前的targerElement
+		function insertAfter(newElement,targetElement){
+			var parent = targetElement.parentNode;
+			if(parent.lastChild == targetElement){
+				parent.appendChild(newElement);
+			}else{
+				parent.insertBefore(newElement,targetElement.nextSibling);
+			}
+		}//nextSibling 下一个兄弟节点
+
+
+		var a = document.createElement("p");
+		var txt = document.createTextNode("hello");
+		a.appendChild(txt);
+		var h1 = document.getElementById("h1");
+		insertAfter(a,h1);
+	</script>
+</body>
+</html>

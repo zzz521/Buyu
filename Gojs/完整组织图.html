@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			height: 600px;
+			width: 600px;
+			background: #DAE4E4;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>	
+	<script src="js/go.js"></script>
+	<script>
+		var $ = go.GraphObject.make;
+		var mydiv = $(go.Diagram,"div1",
+		{
+			initialContentAlignment:go.Spot.Center,
+			"undoManager.isEnabled":true,
+			layout:$(go.TreeLayout,
+			{
+				angle:90,layerSpacing:35
+			})
+		});
+
+
+		mydiv.nodeTemplate = $(go.Node,"Horizontal",
+			{background:"#44CCFF"},
+			$(go.Picture,
+				{margin:10,width:50,height:50,background:"red"},
+				new go.Binding("source")),
+			$(go.TextBlock,"Default Text",
+				{margin:12,stroke:"pink",font:"bold 12px"},
+				new go.Binding("text","name"))
+			);
+
+		mydiv.linkTemplate = $(go.Link,
+			{routing:go.Link.Orthogonal,corner:5},
+			$(go.Shape,{strokeWidth:3,stroke :"#555"}));
+
+
+		var mymodel = $(go.TreeModel);
+		mymodel.nodeDataArray =
+		[
+		  { key: "1",              name: "Don Meow",   source: "img/1.jpg" },
+		  { key: "2", parent: "1", name: "Demeter",    source: "img/2.jpg" },
+		  { key: "3", parent: "1", name: "Copricat",   source: "img/3.jpg" },
+		  { key: "4", parent: "3", name: "Jellylorum", source: "img/1.jpg" },
+		  { key: "5", parent: "3", name: "Alonzo",     source: "img/2.jpg" },
+		  { key: "6", parent: "2", name: "Munkustrap", source: "img/3.jpg" }
+		];
+		mydiv.model = mymodel;
+
+		var mymodel2 = $(go.TreeModel);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			color: red;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1" style="width: 100px;font-size: 15px;"></div>
+	<script>
+		var oDiv1 = document.getElementById('div1');
+		console.log(oDiv1.style.width); //100px
+		console.log(oDiv1.style.height); //空
+
+		//.style.xxx 只能获取内联样式
+	</script>
+</body>
+</html>

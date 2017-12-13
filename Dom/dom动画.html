@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			color: pink;
+			height: 200px;
+			width: 1000px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<p id="p1">This is a hool!</p>
+	</div>
+	<script>
+		var oP1 = document.getElementById('p1');
+		oP1.style.position = 'absolute';
+		oP1.style.top = '100px';
+		oP1.style.left = '50px';
+		function moveMessage(){
+			var oP1 = document.getElementById('p1');
+			var xPos = parseInt(oP1.style.left);
+			var yPos = parseInt(oP1.style.top);
+			if(xPos<800){
+				xPos++;
+			}
+			oP1.style.left = ""+xPos+"px";
+			aTime = setTimeout(function(){
+				moveMessage();
+			},10);
+		};
+
+		moveMessage();
+
+
+
+		function moveElement(elementId,final_x,final_y,interval){
+			var elem = document.getElementById(elementId);
+			var xPos = parseInt(elem.style.left);
+			var yPos = parseInt(elem.style.top);
+			if(xPos == final_x && yPos == final_y){
+				return true;
+			}
+			if(xPos<final_x){
+				xPos++;
+			}
+			if(xPos>final_x){
+				xPos--;
+			}
+			if(yPos<final_y){
+				yPos++;
+			}
+			if(yPos>final_y){
+				yPos--;
+			}
+			elem.style.left = ""+xPos+"px";
+			elem.style.top = ""+yPos+"px";
+			var repeat = "moveElement('"+elementId+"',"+final_x+","+final_y+","+interval+")";
+			var timer = setTimeout(repeat,interval);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			height: 600px;
+			width: 600px;
+			background: #DAE4E4;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+
+	<script src="js/go.js"></script>
+	<script>
+		var $ = go.GraphObject.make;
+		var mydiv = $(go.Diagram,"div1",
+		{
+			initialContentAlignment:go.Spot.Center,
+			"undoManager.isEnabled":true
+		});
+
+		mydiv.nodeTemplate = $(go.Node,"Horizontal",
+			{background:"#44CCFF"},
+			$(go.Picture,
+				{margin:10,width:50,height:50,background:"red"},
+				new go.Binding("source")),
+			$(go.TextBlock,"Default Text",
+				{margin:12,stroke:"pink",font:"bold 12px"},
+				new go.Binding("text","name"))
+			);
+
+
+
+		var myModel = $(go.GraphLinksModel);
+		myModel.nodeDataArray = [
+			{key:"A"},
+			{key:"B"},
+			{key:"C"}
+		];
+
+		myModel.linkDataArray = [
+			{from:"A",to:"B"},
+			{from:"B",to:"c"},//key大小写敏感
+			{from:"B",to:"C"},
+			{from:"C",to:"A"}
+		]
+
+
+		mydiv.model = myModel;//被下面覆盖
+
+
+		var myModel2 = $(go.TreeModel);
+		myModel2.nodeDataArray = [
+			{key:"A"},
+			// {key:"A",parent:"C"},//不会显示，不能头链接尾部
+			{key:"B",parent:"A"},
+			{key:"C",parent:"B"},
+			{key:"D",parent:"B"},
+		];
+
+		mydiv.model = myModel2;
+
+
+
+		var myModel3 = $(go.TreeModel);
+		myModel3.nodeDataArray = [
+			{key:"1",name:"Saber1",source:"img/1.jpg"},
+			{key:"2",parent:"1",name:"Saber2",source:"img/2.jpg"},
+			{key:"3",parent:"1",name:"Saber3",source:"img/3.jpg"},
+			{key:"4",parent:"3",name:"Saber4",source:"img/1.jpg"},
+			{key:"5",parent:"3",name:"Saber5",source:"img/2.jpg"},
+			{key:"6",parent:"2",name:"Saber6",source:"img/3.jpg"},
+		];
+		mydiv.model = myModel3;
+
+	</script>
+</body>
+</html>

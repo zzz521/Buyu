@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			height: 600px;
+			width: 600px;
+			background: #DAE4E4;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+	<script src="js/go.js"></script>
+	<script>
+		var a = go.GraphObject.make;
+		var mydiv = a(go.Diagram,"div1",
+		{
+			initialContentAlignment: go.Spot.Center,
+			"undoManager.isEnabled":true
+		});
+
+
+		mydiv.nodeTemplate = a(go.Node,"Horizontal",
+			{background:"pink"},//节点背景色
+			a(go.Picture,
+			{
+				margin:10,width:50,height:50,background:"red"//节点图片宽高，背景色，避免没有图片时候透明
+			},
+			new go.Binding("source")),//绑定Picture.source的属性为Node.data.source的值
+			//不可以自定义名字
+
+			a(go.TextBlock,
+				"Default Taaa",  //默认文本，数据没name值时使用
+				{margin:12,stroke:"black",font:"bold 16px"},
+				new go.Binding("text","name")) //绑定TextBlock.text的值为Node.data.name的值
+			);	//数据的name和此处要相同,可以自定义名字
+
+
+
+		// mydiv.nodeTemplateMap.add("Comment",
+		// 	a(go.Node,"Auto",nodeStyle(),
+		// 		a(go.Shape,"File",
+		// 			{fill:"#EFFAB4",stroke:null}),
+		// 		a(go.TextBlock,
+		// 		{
+		// 			margin:5,
+		// 			maxSize:new go.Size(200,NaN),
+		// 			wrap:go.TextBloc.WrapFit,
+		// 			textAlign:"center",
+		// 			editable:true,
+		// 			font:"bold 12pt Helvetica",
+		// 			stroke:"#454545"
+		// 		},
+		// 		new go.Binding("text").makeTwoWat())
+		// 		));
+		
+
+
+
+
+
+		var model = a(go.Model);
+		model.nodeDataArray = [
+			{name:"Saber01",source:"img/1.jpg"},
+			{name:"Saber02",source:"img/2.jpg"},
+			{name:"Saber03",source:"img/3.jpg"},
+			{}
+		];
+
+
+		mydiv.model = model;
+
+	</script>
+</body>
+</html>
