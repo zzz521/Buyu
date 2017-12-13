@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		<p class="p1">Hello World</p>
+		<div class="div2">
+			<p>this is a para</p>
+		</div>
+		<p>hei</p>
+		<div>
+			<p class="p1">hey~I miss you</p>
+		</div>
+		<p class="p1">See you.</p>
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		// $("#div1 p").css("color","red");
+		//#div1下的所有p元素
+		// $("#div1>p").css("color","red");
+		//#div1下的所有子元素为p的元素
+		// $(".div2+p").css("color","red");
+		//选取紧挨着.div2的下一个p元素 同辈 必须挨着
+		// $(".div2~p").css("color","red");
+		//选取.div2元素之后的所有p元素 同辈
+
+		// $("p:not(.p1)").css("color","pink");	
+		//选取class不是p1的p元素
+		// $("p:contains('hey')").css("color","pink");
+		//选取含有文本hey的p元素
+		$("div:has(p)").css("color","pink");
+		//选取含有p元素的div元素
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$("ul li:eq(1)").replaceWith("<li>555</li>");
+		//等价于
+		$("<li>555</li>").replaceAll("ul li:eq(1)");
+		//可以一次替换所有的li标签
+	</script>
+</body>
+</html>

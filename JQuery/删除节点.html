@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li title="abc">4</li>
+		<li>5</li>
+	</ul>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		// $("#ul1 li:eq(2)").remove();
+		
+		// $("#ul1 li").remove("li[title=abc]");
+		//remove可以通过传参数删除指定的节点
+
+
+
+		$("#ul1 li").on("click",function(){
+			alert($(this).html());
+		})
+		var _li = $("#ul1 li:eq(2)").detach();
+		$("#ul1").append(_li);
+
+		//detach与remove的区别在于，重新添加此元素时，以前绑定的事件还在，remove则不在
+
+		$("#ul1 li:eq(1)").empty();
+		//empty是清空节点，清空元素中所有后代节点
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div"></div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		console.log($("#div"));
+		if($("#div")) console.log(1); //1
+		if($("#div1")) console.log(1); //1
+		if($("#div1").length>0) console.log(1); //不输出
+		//想要判断$()是否存在时，应该将他转换成原生对象，或者判断他的长度是否大于0 
+	</script>
+</body>
+</html>

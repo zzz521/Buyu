@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		var _p1 = $("<p>This is p1</p>");
+		var _p2 = $("<p>This is p2</p>");
+		$("#div1").append(_p1).append(_p2);
+		//等价于
+		(_p1).appendTo("#div1");
+		(_p2).appendTo("#div1");
+	</script>
+	</script>
+</body>
+</html>

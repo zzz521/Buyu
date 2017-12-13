@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>哈哈</li>
+		<li>呵呵</li>
+		<li>嘿嘿</li>
+		<li>吼吼</li>
+	</ul>
+	<ul id="ul2">
+		<li>斑马</li>
+		<li>河马</li>
+		<li>野马</li>
+		<li>海马</li>
+	</ul>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		// $("#ul1 li:eq(1)").clone().appendTo("ul");
+		$("#ul1 li").on("click",function(){
+			$(this).clone().appendTo("#ul1");
+		})
+
+		$("#ul2 li").on("click",function(){
+			$(this).clone(true).appendTo("#ul2");
+		})
+		//clone传递参数true时，复制元素的同时复制元素的绑定事件
+	</script>
+</body>
+</html>
