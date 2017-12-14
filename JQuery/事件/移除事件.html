@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="add">单击我</button>
+    <div id="div1"></div>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#add').bind('click',myClick1 = function () {
+                $("#div1").append("<p>我的绑定函数1</p>")
+            }).bind('click',function () {
+                $("#div1").append("<p>我的绑定函数2</p>")
+            }).bind('click',function () {
+                $("#div1").append("<p>我的绑定函数3</p>")
+            })
+
+
+            $('#del').click(function () {
+//                $('#add').unbind("click");
+                //删除#add中的所有点击事件，如果不写参数，则删除所有事件
+                //如果有一个参数为事件类型，则删除这个类型的所有事件，若两个参数，第二个参数为事件处理参数
+                // 则删除这个特性的事件处理参数
+
+                $('#add').unbind("click",myClick1);//单独删除函数名为myClick1的事件
+            })
+
+        })
+    </script>
+</body>
+</html>

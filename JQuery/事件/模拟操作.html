@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="add">单击我</button>
+    <div id="div1"></div>
+    <button id="add2">单击我</button>
+    <div id="div2">
+
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#add').bind('click',myClick1 = function () {
+                $("#div1").append("<p>我的绑定函数1</p>")
+            }).bind('click',function () {
+                $("#div1").append("<p>我的绑定函数2</p>")
+            }).bind('click',function () {
+                $("#div1").append("<p>我的绑定函数3</p>")
+            })
+
+//            $('#add').trigger('click');
+            //模拟点击事件，页面加载完直接触发click事件
+            $('#add').click();//简写
+
+
+
+            //自定义事件
+            $("#add2").bind('myClick',function () {
+                $("#div2").append("<p>我的自定义函数1</p>")
+            });
+
+            $("#add2").trigger('myClick');//假面加载完时触发
+
+            $("#add2").bind('myClick2',function (e,mess1,mess2) {
+                $("#div2").append("<p>"+mess1+mess2+"</p>")//必须加一个事件源作为第一个参数
+            });
+            $("#add2").trigger('myClick2',["我的自定义","事件2"]);//第二个参数是传递给事件处理函数的数据
+        })
+    </script>
+</body>
+</html>

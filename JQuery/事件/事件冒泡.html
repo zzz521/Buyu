@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background: pink;
+            width: 150px;
+            height: 100px;
+        }
+        .content{
+            display: block;
+            width: 150px;
+            height: 50px;
+            background: #783245;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        外层div元素
+        <span class="content">内层span元素</span>
+        外层div元素
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+//        $('.content').click(function () {
+//            console.log('内层元素被单机');
+//        });
+//        $('.div1').click(function () {
+//            console.log('外层元素被单机');
+//        });
+//        $('body').click(function () {
+//            console.log('body元素被单机');
+//        })
+
+        //当点击内层元素时，会输出三条记录，由span到div到body 由内到外逐层冒泡
+
+        //停止事件冒泡
+        $('.content').click(function (e) {
+            console.log('内层元素被单击');
+//            e.stopPropagation();
+            return false; //阻止冒泡的简写形式
+        });
+        $('.div1').click(function (e) {
+            console.log('外层元素被单击');
+//            e.stopPropagation();
+            return false;//阻止冒泡的简写形式
+        });
+        $('body').click(function (e) {
+            console.log('body元素被单击');
+        })//  e.stopPropagation();可以停止事件冒泡，但是必须要在函数参数中写上形参，单击的时候，事件对象e被创建
+        //事件处理函数执行完之后，事件对象e被销毁
+    </script>
+</body>
+</html>

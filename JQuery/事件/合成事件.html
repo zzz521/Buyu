@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<div>
+    <h4 class="title">什么是Jq？</h4>
+    <p class="content">Jq是一个优秀的Js库</p>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+//        $("div").toggle(function(){
+//                $("body").css("background-color","green");},
+//            function(){
+//                $("body").css("background-color","red");},
+//            function(){
+//                $("body").css("background-color","yellow");}
+//        );
+
+
+        $('.title').click(function () {
+                $('.title').next().toggle();
+        });
+    });
+    //该方法也可用于切换被选元素的 hide() 与 show() 方法。
+    //toggle() 方法用于绑定两个或多个事件处理器函数，以响应被选元素的轮流的 click 事件。
+    //$(selector).toggle(function1(),function2(),functionN(),...)
+</script>
+</body>
+</html>

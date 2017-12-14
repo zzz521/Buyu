@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h4 class="title">什么是Jq？</h4>
+        <p class="content">Jq是一个优秀的Js库</p>
+
+
+        <button id="add">单击我</button>
+        <div id="div1"></div>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+       $(function () {
+           $('.content').hide();
+//           $('.title').bind('click',function () {
+//               if($('.content').is(":visible")){
+//                   $('.title').next().hide();
+//               }else{
+//                   $('.title').next().show();;
+//               }
+//           })
+
+           //简写
+           $('.title').click(function () {
+               if($('.content').is(":visible")){
+                   $('.title').next().hide();
+               }else{
+                   $('.title').next().show();;
+               }
+           })
+
+
+
+           $("#add").one("click",function () {
+               $("#div1").append("<p>添加一行数据</p>");
+           })
+           //one 只出发一次 随后事件解除绑定
+
+
+
+       })
+    </script>
+</body>
+</html>
