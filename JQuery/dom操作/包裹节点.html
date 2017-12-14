@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span>啦啦啦啊</span>
+	<span>我是卖报的小行家</span>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		// $('span').wrap('<div></div>');
+		//用div将span标签包裹起来
+		// $('span').wrapAll('<div></div>');
+		//wrap是将每一个span标签分别用div包裹起来
+		//wrapAll是将所有的span标签用一个大div包裹起来
+
+		$('span').wrapInner('<p></p>');
+		//wrapInner是在span标签内部包裹一个p标签
+	</script>
+</body>
+</html>

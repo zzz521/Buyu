@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>This is a para.</p>
+    <div>qwer</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="ul2">
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+    </ul>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        var _body = $('body').children();
+        var _p = $('p').children();
+        var _ul = $('ul').children();
+        console.log(_body.length);//4 包含p ul 两个script
+        console.log(_p.length); //0
+        console.log(_ul.length);//3 3个li
+        //children只能遍历子元素，不考虑其他后代元素
+        //find()方法跟children类似，find方法遍历所有后代元素
+
+
+        console.log($('p').next());//获取到紧邻着p元素的下一个元素 就是ul 同辈的
+        $('p').next().css('color','red');
+
+        console.log($('ul').prev());//获取到紧挨着匹配元素的上一个元素  同辈
+        $('ul').prev().css('color','green');
+
+
+        $(".ul2 li:eq(2)").siblings().css('color','blue');//获取匹配元素外的所有同辈的元素
+
+
+        console.log($("p").closest('ul'));//取得最近的匹配元素，如果没有，向父级查找，逐层至上，没有的话返回一个空的jq对象
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div style="position: relative;"><div id="div">
+</div></div>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+    console.log($('#div').height());
+    //可以获取，也可以传递参数修改 width同理
+    console.log($('#div').offset());
+    //如果不定位 输出top8 left8  相对于浏览器
+    console.log($('#div').offset().left,$('div').offset().top);//可以分别获取top和left
+
+
+    console.log($('div').position());//相对于最近已定位元素
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+		.div1{
+			background: #dd2931;
+		}
+		.div2{
+			background: #842932;
+		}
+		.div3{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		//可以通过attr修改或者添加id或者class来修改样式
+
+		$('div').addClass('div1');
+		$('div').addClass('div2');
+		//css后面添加的会覆盖前面添加的
+
+		$('div').removeClass('div2').removeClass('div1');
+		//移除
+		//等价于
+		$('div').removeClass('div1 div2');
+
+		$('div').on('click',function(){
+			$('div').toggleClass('div3');//有就删除 没有就添加
+			console.log($('div').hasClass('div3'));//布尔类型 判断是否有某个class
+		})
+	</script>
+</body>
+</html>

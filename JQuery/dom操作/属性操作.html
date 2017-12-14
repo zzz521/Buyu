@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: pink;
+		}
+		#dd{
+			width: 200px;
+			height: 200px;
+			background: green;
+		}
+		.div2{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		console.log($('div').attr('id'));//div1
+		$('div').attr('id', 'dd');
+		$('div').removeAttr('id');//移除属性
+	</script>
+</body>
+</html>
