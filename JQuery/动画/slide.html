@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            background: palevioletred;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <button>隐藏</button>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        var _flag = true;
+        $("button").click(function () {
+            if(_flag) {
+                $("#div1").slideUp();//从上到下
+                _flag = false;
+            }else{
+                $("#div1").slideDown();
+                _flag = true;
+            }
+
+        })
+    </script>
+</body>
+</html>

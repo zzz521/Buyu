@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 200px;
+            width: 200px;
+            position: relative;
+            left:50px;
+            top:200px;
+            background: #3187d1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+//        $("#div1").click(function () {
+//            if($(this).offset().left<300){
+//                $(this).animate({left:"600px"},1000);
+//            }else{
+//                $(this).animate({left:"50px"},1000);
+//            }
+//
+//        })
+
+
+//        $("#div1").click(function () {
+//                $(this).animate({left:"+=100px"},1000);//累加动画 点击一次增加100px
+//        });
+
+
+//        $("#div1").click(function () {
+//            $(this).animate({left:"+=100px",height:"+=20px"},1000);//多重动画 同时发生的
+//        })
+
+
+
+//        $("#div1").click(function () {
+//            $(this).animate({left:"+=100px"},1000)
+//            .animate({height:"+=20px"},1000);//多重动画，按前后顺序执行
+//        });
+
+
+
+        $("#div1").click(function () {
+            $(this).animate({left:"400px",height:"300px",opacity:"1"},1000)
+                .animate({top:"300px",width:"300px"},1000)
+                .fadeOut("slow").fadeIn("slow")
+                .animate({left:"50px",top:"200px",height:"200px",width:"200px"},2000,function () {
+//                    $(this).css("border","5px solid pink") //动画回掉函数 执行完动画后执行
+                });  //综合动画
+        });
+
+    </script>
+</body>
+</html>

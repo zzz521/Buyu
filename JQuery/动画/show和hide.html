@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            background: palevioletred;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <button>隐藏</button>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $('button').click(function () {
+            if($("#div1").is(":visible")){
+                $("#div1").hide(3000);//可以加时间 ms
+                $('button').text("显示")
+            }else{
+                $("#div1").show("slow");
+                $('button').text("隐藏")
+                //hide show加上参数则有动画效果，
+            }
+        })
+
+//        $('#div1').toggle(function () {
+//                $("#div1").hide(3000);
+//                $('button').text("显示");
+//        },function(){
+//                $("#div1").show("slow");
+//                $('button').text("隐藏");
+//        })
+    </script>
+</body>
+</html>

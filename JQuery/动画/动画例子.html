@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration:none;
+        }
+        #content{
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            /*border: 1px solid #842932;*/
+            position: relative;
+            overflow: hidden;
+
+        }
+        .prev,.next{
+            color: deeppink;
+            position: absolute;
+            top: 50px;
+        }
+        .prev{
+            left: 400px;
+        }
+        .next{
+            left: 500px;
+        }
+        #img-box{
+            width: 10000px;
+            padding-left: 0;
+            /*margin-top: 100px;*/
+            /*margin-left: -20px;*/
+            position: absolute;
+            top:100px;
+            left: 0;
+        }
+        #img-box li{
+            float: left;
+            margin-right: 40px;
+        }
+        #img-box li img{
+            width: 360px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h3>Saber的照片墙</h3>
+        <a class="prev" href="javascript:void(0)">上一页</a>
+        <a class="next" href="javascript:void(0)">下一页</a>
+        <ul id="img-box">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpeg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/8.jpg" alt=""></li>
+            <li><img src="img/9.jpg" alt=""></li>
+            <li><img src="img/10.jpg" alt=""></li>
+            <li><img src="img/11.jpg" alt=""></li>
+            <li><img src="img/12.jpg" alt=""></li>
+            <li><img src="img/13.jpg" alt=""></li>
+            <li><img src="img/14.jpg" alt=""></li>
+            <li><img src="img/15.jpg" alt=""></li>
+            <li><img src="img/16.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('.prev').click(function () {
+            if($("#img-box").position().left == 0){
+                $("#img-box").animate({left:"-5200px"},4000);
+            }else{
+                $("#img-box").animate({left:"+=1200px"},2000);
+            }
+            console.log($("#img-box").position().left)
+        });
+        $('.next').click(function () {
+            if($("#img-box").position().left < -5100){
+                $("#img-box").animate({left:"0px"},4000);
+            }else{
+                $("#img-box").animate({left:"-=1200px"},2000);
+            }
+
+        });
+        console.log($("#img-box").position().left)
+    </script>
+</body>
+</html>

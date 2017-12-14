@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 200px;
+            width: 200px;
+            position: relative;
+            left:150px;
+            top:200px;
+            background: #3187d1;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <button class="start">开始</button>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(".start").click(function () {
+            $("#div1").delay(3000).animate({left:"600px"},5000).delay(1000)
+                .animate({top:"600px"},3000);//放在要执行的动画前
+        });
+
+    </script>
+</body>
+</html>
