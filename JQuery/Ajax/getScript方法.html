@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" id="form1">
+    <p>评论</p>
+    <p>姓名: <input type="text" name="username" id="username"></p>
+    <p>内容： <textarea name="content" id="content" cols="30" rows="5"></textarea></p>
+    <p><input type="button" value="提交" id="send"></p>
+</form>
+<div class="comment">已有评论：
+    <div id="resText"></div>
+</div>
+
+
+
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    //动态创建js文件
+    //$("<script src='xxx.js'>").appendTo("head");
+
+    $(function () {
+//        $('#send').click(function () {
+//            $.getScript('test.js');
+//        });   //动态创建js文件
+
+        $('#send').click(function () {
+            $.getScript('test.js',function () {
+                //回调函数在js文件成功载入后运行
+            });
+        });
+    })
+</script>
+</body>
+</html>

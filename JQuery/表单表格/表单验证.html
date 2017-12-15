@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="username">用户名</label>
+            <input type="text" id="username" class="required">
+        </div>
+        <div>
+            <label for="email">邮箱</label>
+            <input type="text" id="email" class="required">
+        </div>
+        <div>
+            <label for="personinfo">邮箱</label>
+            <input type="text" id="personinfo">
+        </div>
+        <div><input type="submit" value="提交"></div>
+    </form>
+    
+    
+    
+    
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(".required").each(function () {
+            $(this).parent().append("<strong style='color: red;'>*</strong>");
+        });
+
+        $("form :input").blur(function () {
+            if($(this).is("#username")) {
+                if($(this).val()=='' || $(this).val().length<6){
+                    alert("用户名格式不正确");
+                }else{
+                    alert("输入正确");
+                }
+            }
+            if($(this).is("#email")){
+                if($(this).val()==''){
+                    alert("邮箱格式不正确")
+                }else{
+                    alert("输入正确");
+                }
+            }
+        }).keyup(function () {
+            $(this).triggerHandler('blur');
+        }).focus(function () {
+            $(this).triggerHandler('blur');
+        })
+    </script>
+</body>
+</html>

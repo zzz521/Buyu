@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .focus{
+            border: 2px solid red;
+            background: #3187d1;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $("input").focus(function () { //获取焦点
+        $("input").addClass("focus")
+    }).blur(function () { //失去焦点
+        $("input").removeClass("focus")
+    })
+</script>
+</body>
+</html>

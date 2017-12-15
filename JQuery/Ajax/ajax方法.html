@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="ajax获取" id="send">
+    <div class="comment">已有评论：</div>
+    <div id="resText"></div>
+
+
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#send').click(function () {
+                $.ajax({
+                    url:"test.html",//请求的地址，默认当前页地址
+                    type:"GET",//默认get
+                    data:{foo1:"bar1",foo2:"bar2"},//发送到服务器的数据，必须是键值对，get请求时会将他转换成&foo1=bar1&foo2=bar2
+                    dataType:"json",//返回的数据类型
+                    complete:function (XMLHttpRequest,textStatue) {
+                        //请求完成后调用的回调函数，成功失败均调用
+                        console.log(1);//输出1
+                    },
+                    success:function (data,textStatus) {
+                        //成功时调用的回调函数
+                        console.log(2)//不输出
+                    },
+                    error:function (XMLHttpRequest,textStatus,errorThrown) {
+                        //失败后调用的回调函数
+                        console.log(3);//输出3
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+</html>

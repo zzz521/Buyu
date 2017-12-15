@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span class="up">放大</span>
+    <span class="down">缩小</span>
+    <textarea name="" id="txt" cols="30" rows="20">今天是个好日子今天是个好日子
+        今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子
+        今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子
+        今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子
+        今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子</textarea>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        //放大
+        $('.up').click(function () {
+            var txt_fz = $('#txt').css('font-size');//获取字体大小，是字符串型
+//            console.log(txt_fz);
+            var txt_fznum = parseInt(txt_fz,10);//获取字体大小的数值
+            var unti = txt_fz.slice(-2);//截取字符串，负数从末尾开始 这里是获取px
+            if(txt_fznum<30){
+                txt_fznum +=2;
+            }
+            $('#txt').css('font-size',txt_fznum+unti);
+        });
+
+
+        ///缩小
+        $('.down').click(function () {
+            var txt_fz = $('#txt').css('font-size');//获取字体大小，是字符串型
+//            console.log(txt_fz);
+            var txt_fznum = parseInt(txt_fz,10);//获取字体大小的数值
+            var unti = txt_fz.slice(-2);//截取字符串，负数从末尾开始 这里是获取px
+            if(txt_fznum>2){
+                txt_fznum -=2;
+            }
+            $('#txt').css('font-size',txt_fznum+unti);
+        });
+    </script>
+</body>
+</html>

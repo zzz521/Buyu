@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="#" id="form1">
+        <p>评论</p>
+        <p>姓名: <input type="text" name="username" id="username"></p>
+        <p>内容： <textarea name="content" id="content" cols="30" rows="5"></textarea></p>
+        <p><input type="button" value="提交" id="send"></p>
+    </form>
+    <div class="comment">已有评论：
+        <div id="resText"></div>
+    </div>
+
+
+
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        //get的回调函数只有在请求成功时才会调用
+        $('#send').click(function () {
+            $.get("test.php",{
+                username:   $('#username').val(),
+                content:$('#content').val()
+            },function (data,textStatus) {
+                //回调函数
+                //如果服务器端接受到传递的data数据并成功返回，就可以通过回调函数将数据显示在页面上
+
+                //data 返回的内容 可以是XML文档, HTML片段，JSON文件等
+                //textStatus   请求状态 success,error,notmodified,timeout 4种
+            });
+        });
+    </script>
+</body>
+</html>

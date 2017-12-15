@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        .selected{
+            width: 50px;
+            text-align: center;
+            background: orangered;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="selected">Saber</li>
+        <li>Lancer</li>
+        <li>Rider</li>
+    </ul>
+    <div>吾王美如画</div>
+    <div style="display: none;">自古枪兵幸运E</div>
+    <div style="display: none;">征服王</div>
+    
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('ul>li').click(function () {
+//            $('ul>li').removeClass('selected');
+            $(this).addClass('selected').siblings().removeClass('selected');
+//            console.log($(this).index());  // .index可以获取当前元素的索引
+            var _liindex = $(this).index();
+            $('div').eq(_liindex).show().siblings('div').hide();
+        });
+    </script>
+</body>
+</html>

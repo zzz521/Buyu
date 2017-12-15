@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<table>
+    <form action=""><input type="text" class="shaixuan">筛选</form>
+    <thead>
+        <tr><th>姓名</th><th>性别</th><th>职业</th></tr>
+    </thead>
+    <tbody>
+        <tr></th><th>Saber</th><th>女</th><th>剑士</th></tr>
+        <tr><th>Lancer</th><th>男</th><th>枪兵</th></tr>
+        <tr><th>Rider</th><th>男</th><th>骑兵</th></tr>
+        <tr><th>Archer</th><th>男</th><th>箭手</th></tr>
+        <tr><th>Caster</th><th>女</th><th>法师</th></tr>
+        <tr><th>Assassin</th><th>男</th><th>刺客</th></tr>
+        <tr><th>Berserker</th><th>男</th><th>战士</th></tr>
+    </tbody>
+</table>
+<body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $('.shaixuan').keyup(function () {
+        $('tbody>tr').hide();
+        var _val = $('.shaixuan').val();
+//        $("tbody>tr:contains('"+_val+"')").show();
+        $('tbody>tr').filter(":contains('"+_val+"')").show();
+        //可以用filter过滤 就是选择器的作用
+    });
+</script>
+</body>
+</html>

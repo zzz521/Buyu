@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            background: deeppink;
+        }
+    </style>
+</head>
+<table>
+    <!--<thead>-->
+        <!--<tr><th></th><th>姓名</th><th>性别</th><th>职业</th></tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+        <!--<tr><th><input type="radio" name="职业"></th><th>Saber</th><th>女</th><th>剑士</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Lancer</th><th>男</th><th>枪兵</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Rider</th><th>男</th><th>骑兵</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Archer</th><th>男</th><th>箭手</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Caster</th><th>女</th><th>法师</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Assassin</th><th>男</th><th>刺客</th></tr>-->
+        <!--<tr><th><input type="radio" name="职业"><th>Berserker</th><th>男</th><th>战士</th></tr>-->
+    <!--</tbody>-->
+    <thead>
+        <tr><th></th><th>姓名</th><th>性别</th><th>职业</th></tr>
+    </thead>
+    <tbody>
+        <tr><th><input type="checkbox" name="职业"></th><th>Saber</th><th>女</th><th>剑士</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Lancer</th><th>男</th><th>枪兵</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Rider</th><th>男</th><th>骑兵</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Archer</th><th>男</th><th>箭手</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Caster</th><th>女</th><th>法师</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Assassin</th><th>男</th><th>刺客</th></tr>
+        <tr><th><input type="checkbox" name="职业"><th>Berserker</th><th>男</th><th>战士</th></tr>
+    </tbody>
+</table>
+<body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    //隔行变色
+//    $("tbody>tr:odd").css('background','pink');
+//    $("tbody>tr:even").css('background','yellow');
+    //加空格选择器选择的内容就不同了
+
+//单选框点击单行高亮
+//    $('tbody>tr').click(function () {
+//        $(this).addClass('active').siblings().removeClass('active')
+//            .end().find('input').prop('checked',true);//end返回上一个阶段，siblings改变了jq对象，end返回到siblings之前，即$(this)
+//    });
+
+
+    $('tbody>tr').click(function () {
+        if($(this).hasClass('active')){
+            $(this).removeClass('active')
+                .find("input").prop('checked',false);
+        }else{
+            $(this).addClass('active')
+                .find("input").prop('checked',true);
+        }
+    })
+
+
+</script>
+</body>
+</html>

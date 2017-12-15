@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #000;
+            list-style: none;
+        }
+        ul{
+            overflow: hidden;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        .content{
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin-left: 80px;
+        }
+        .gray{
+            background: gray;
+        }
+        .green{
+            background: green;
+        }
+        .blue{
+            background: blue;
+        }
+        .red{
+            background: red;
+        }
+        .pink{
+            background: pink;
+        }
+        .orangered{
+            background: orangered;
+        }
+    </style>
+</head>
+    <ul>
+        <li class="gray"></li>
+        <li class="green"></li>
+        <li class="blue"></li>
+        <li class="red"></li>
+        <li class="pink"></li>
+        <li class="orangered"></li>
+    </ul>
+    <div class="box">
+        <div class="content">时事新闻</div>
+        <div class="content">热点资讯</div>
+    </div>
+<body>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $("ul>li").click(function () {
+            var _bg = $(this).attr('class');
+//            console.log(_bg);
+            $('.box').css('background',_bg);
+        });
+    </script>
+</body>
+</html>

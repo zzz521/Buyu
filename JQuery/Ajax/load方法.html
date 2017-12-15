@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="ajax获取" id="send">
+    <div class="comment">已有评论：</div>
+    <div id="resText"></div>
+
+    
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        //load方法通常从web服务器上获取静态数据文件
+        //load(url,[data],[callback])
+        $(function () {
+            $('#send').on('click',function () {
+//                $("#resText").load('test.html'); //通过load方法，可以直接将load参数中的文件加载并插入指定位置
+
+//                $("#resText").load('test.html .para');//只加载某些元素，可以通过url selector的语法来实现 中间有空格
+                //加载test.html文件中的class为para的元素
+
+
+//                $("#resText").load('test.html',function () {
+//                    //如果没有第二个参数data，则默认为GET方式传递
+//                });
+
+
+//                $("#resText").load('test.html',{name:"rain",age:"22"},function () {
+//                    //第二个参数为对象，如果有第二个参数，则为POST方式传递
+//                });
+
+
+
+                $("#resText").load('123.html',function (responseText,textStatue,XMLHttpRequest) {
+                    //responseText :请求返回的内容
+                    //textStatue:请求状态： success,error,notmodified,timeout 4种
+                    //XMLHttpRequest：XMLHttpRequest对象
+                    console.log(123);
+                });//无论请求是否成功，只要请求完成，回调函数就会被触发
+            })
+        })
+    </script>
+</body>
+</html>

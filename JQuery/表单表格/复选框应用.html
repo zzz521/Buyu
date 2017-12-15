@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="">
+        <input type="checkbox" name="item" value="足球">足球
+        <input type="checkbox" name="item" value="篮球">篮球
+        <input type="checkbox" name="item" value="羽毛球">羽毛球
+        <input type="checkbox" name="item" value="乒乓球">乒乓球
+        <input type="button" value="全  选" id="checkedAll">
+        <input type="button" value="全不选" id="checkedNo">
+        <input type="button" value="反  选" id="checkedRev">
+        <input type="button" value="提  交" id="send">
+    </form>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $("#checkedAll").click(function () {
+            $("[name=item]:checkbox").prop('checked',true);
+        });
+        $("#checkedNo").click(function () {
+            $("[name=item]:checkbox").prop('checked',false);
+        });
+        $("#checkedRev").click(function () {
+            $("[name=item]:checkbox").each(function (index,elem) {
+//                console.log(elem);
+//                console.log(this);
+                $(this).prop("checked",!($(this).prop("checked")));
+            })
+        });
+        $("#send").click(function () {
+            var str = "你选中的是： \n";
+            $("[name=item]:checkbox:checked").each(function () {
+                str += $(this).val()+"\n"
+            })
+            alert(str);
+        });
+    </script>
+</body>
+</html>

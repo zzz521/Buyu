@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="float: left">
+        <select name="" id="left" style="height: 160px;width: 100px" multiple>
+            <option value="">Saber</option>
+            <option value="">Lancer</option>
+            <option value="">Archer</option>
+            <option value="">Rider</option>
+            <option value="">Caster</option>
+            <option value="">Assassin</option>
+            <option value="">Berserker</option>
+        </select>
+        <span style="display: block" id="add">选中添加到右边</span>
+        <span style="display: block" id="addAll">全部添加到右边</span>
+    </div>
+    <div>
+        <select name="" id="right" style="height: 160px;width: 100px" multiple></select>
+        <span style="display: block" id="dele">选中删除到左边</span>
+        <span style="display: block" id="deleAll">全部删除到左边</span>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $("#add").click(function () {
+            var $option = $("#left option:selected");
+//            var $remove = $option.remove();
+//            console.log($remove);
+//            $("#right").append($remove);
+//            $remove.appendTo($("#right"));
+//            $option.remove().appendTo($("#right"));
+            $("#right").append($option.remove());
+            //可以直接添加 不用删除 把left的元素挪到right
+        });
+
+        $("#addAll").click(function () {
+            var $option = $("#left option");
+//            var $remove = $option.remove();
+            $("#right").append( $option.remove());
+        });
+
+
+        $('#left option').dblclick(function () {
+            $("#right").append($(this).remove()); //双击删除到右边
+        });
+    </script>
+</body>
+</html>

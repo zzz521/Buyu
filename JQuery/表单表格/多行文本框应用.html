@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <span class="up">放大</span>
+        <span class="down">缩小</span>
+    </div>
+    <textarea name="" id="txt" cols="30" rows="10">多行文本框放大缩小</textarea>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('.up').click(function () {
+            if($("#txt").height()<500){
+                if(!$("#txt").is(":animated")){
+                    $("#txt").animate({height:"+=50px"},1000);
+                }
+            }
+        });
+
+        $('.down').click(function () {
+            if($("#txt").height()>50){
+                if(!$("#txt").is(":animated")){
+                    $("#txt").animate({height:"-=50px"},1000);
+                }
+            }
+        });
+        //如果是使滚动条发生变化，将动画中的height 换成scrollTop
+    </script>
+</body>
+</html>

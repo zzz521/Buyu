@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th></th><th>姓名</th><th>性别</th><th>职业</th></tr>
+        </thead>
+        <tbody>
+            <tr class="parent" id="row1"><td colspan="3">top1</td></tr>
+            <tr class="childrow1"><th><input type="checkbox" name="职业"></th><th>Saber</th><th>女</th><th>剑士</th></tr>
+            <tr class="childrow1"><th><input type="checkbox" name="职业"><th>Lancer</th><th>男</th><th>枪兵</th></tr>
+            <tr class="childrow1"><th><input type="checkbox" name="职业"><th>Rider</th><th>男</th><th>骑兵</th></tr>
+            <tr class="parent" id="row2"><td colspan="3">top2</td></tr>
+            <tr class="childrow2"><th><input type="checkbox" name="职业"><th>Archer</th><th>男</th><th>箭手</th></tr>
+            <tr class="childrow2"><th><input type="checkbox" name="职业"><th>Caster</th><th>女</th><th>法师</th></tr>
+            <tr class="childrow2"><th><input type="checkbox" name="职业"><th>Assassin</th><th>男</th><th>刺客</th></tr>
+            <tr class="childrow2"><th><input type="checkbox" name="职业"><th>Berserker</th><th>男</th><th>战士</th></tr>
+        </tbody>
+    </table>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('.parent').click(function () {
+            $('.child'+this.id).toggle();
+        }).click();
+
+        //Dom加载完后， click事件直接触发
+
+        //        $(".parent").trigger('click');
+//        也可以直接触发
+    </script>
+</body>
+</html>
