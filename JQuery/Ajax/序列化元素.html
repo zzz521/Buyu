@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="#" id="form1">
+    <p>评论</p>
+    <p>姓名: <input type="text" name="username" id="username"></p>
+    <p>内容： <textarea name="content" id="content" cols="30" rows="5"></textarea></p>
+    <p><input type="button" value="提交" id="send"></p>
+    </form>
+    <div class="comment">已有评论：
+        <div id="resText"></div>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        //ajax异步提交表单 并将返回的数据显示在页面中
+
+        $('#send').click(function () {
+//            $.get("test.php",{
+//                username:   $('#username').val(),//为了获取内容，必须将字段的值逐个添加到data参数中
+//                content:$('#content').val()
+//            },function (data,textStatus) {
+//            });
+
+
+        $.get("test.php",$("#form1").serialize(),function (data,textStatus) {
+            });//跟上面同样的效果   自动编码  序列化成字符串形式
+        });
+
+        //serializeArray();将dom元素序列化，返回JSON格式的数据
+
+
+        var obj = {
+            a:1,b:2,c:3
+        };
+        var k = $.param(obj);
+        console.log(k);//输出a=1&b=2&c=3
+        //serialize方法的核心，用来对一个数组或者对象按照key/value进行序列化
+    </script>
+</body>
+</html>

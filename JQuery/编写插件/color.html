@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            color: pink;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">哈哈哈哈哈</div>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <script>
+        $(function () {
+            console.log($("#div1").color());
+            $("#div1").color("blue")
+        })
+    </script>
+</body>
+</html>
