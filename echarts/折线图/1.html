@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            height: 600px;
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script src="echarts.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        var myChart = echarts.init(document.getElementById('main'));
+
+
+        var dataX = (function(){
+            var res = [];
+            for(var i=1;i<32;i++){
+                res.push('2017-10-'+i);
+            }
+            return res;
+        })();
+
+        var data = (function(){
+            var res = [];
+            for(var i=1;i<32;i++){
+                res.push(Math.round(Math.random()*100));
+            }
+            return res;
+        })();
+
+        var data0 = (function(){
+            var res = [];
+            for(var i=0;i<=24;i++){
+                if(i<10){
+                res.push('0'+i+':00');   
+                }else{
+                    res.push(i+':00');
+                }
+            }
+            return res;
+        })();
+
+        var data1 = (function(){
+            var res = [];
+            for(var i=0;i<25;i++){
+                res.push(Math.round(Math.random()*100))
+            }
+            return res;
+        })();
+
+       var flag = 0;
+
+
+        option = {
+            backgroundColor:"#0E2A43",
+            tooltip:{   //提示框组件
+                trigger: "axis", //x坐标轴
+                axisPointer : { // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'// 默认为直线，可选为：'line' | 'shadow'
+                }
+
+            },
+            legend:{    //图例组件
+                data:['Saber'],
+                top:'bottom',
+                textStyle:{
+                    color:"#fff"
+                }
+            },
+            toolbox:{  //工具组件
+                show:true,
+                feature:{
+                    restore:{},
+                    myTool1:{
+                        show:true,
+                        title:"返回",
+                        icon: 'path://M363.840919 472.978737C336.938714 497.358861 337.301807 537.486138 364.730379 561.486138L673.951902 832.05497C682.818816 839.813519 696.296418 838.915012 704.05497 830.048098 711.813519 821.181184 710.915012 807.703582 702.048098 799.94503L392.826577 529.376198C384.59578 522.174253 384.502227 511.835287 392.492414 504.59418L702.325747 223.807723C711.056111 215.895829 711.719614 202.404616 703.807723 193.674252 695.895829 184.943889 682.404617 184.280386 673.674253 192.192278L363.840919 472.978737Z',
+                        onclick: function () {
+                            if(flag == 1){
+                                option.xAxis.data = dataX;
+                                option.series[0].data = data;
+                                myChart.setOption(option);
+                                flag = 0;
+                            }else if(flag == 2){
+                                option.xAxis.data = data0;
+                                option.series[0].data = data1;
+                                myChart.setOption(option);
+                                flag = 1;
+                            }
+                        }
+                    }
+                },
+                iconStyle:{
+                    normal:{
+                        borderColor:"#fff"
+                    },
+                    emphasis:{
+                        borderColor:"red"
+                    }
+                },
+                right:"3%",
+                top:"3%"
+            },
+            xAxis:{
+                show:true,
+                type:"category",
+                triggerEvent:true,
+                axisLine:{
+                    lineStyle:{
+                        color:"#fff"
+
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        type :'dashed'
+                    }
+                },
+                splitNumber:6,
+                data:dataX
+            },
+            yAxis:{
+                axisLine:{
+                    lineStyle:{
+                        color:"#fff"
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: ['#aaa', '#ddd'],
+                        type :'dashed'
+                    }
+                }
+            },
+            dataZoom:{   //用于区域缩放的组件
+                type:"inside",
+                xAxisIndex:0,
+                filterMode:"none" //数据过滤
+            },
+            series:[{
+                name:'Saber',
+                type:'line',
+                data:data
+            }]
+        };
+
+        myChart.on('click', function (params) {
+            // console.log(params);
+            if(params.componentType == 'series'){
+                if(flag == 0){
+                option.xAxis.data = data0;
+                option.series[0].data = data1;
+                myChart.setOption(option);
+                flag++;
+                }else if(flag == 1){
+                    var _hour = params.name.substring(0,2);  //根据索引找到x轴的值 切割字符串
+                    var _data = (function(){
+                        var res = [];
+                        for(var i=0;i<60;i++){
+                            if(i<10){
+                                res.push(_hour+':0'+i);
+                            }else{
+                                res.push(_hour+':'+i);
+                            }
+                        }
+                        return res;   
+                    })();
+                    option.xAxis.data = _data;
+                    var _data1 = (function(){
+                        var res = [];
+                        for(var i=0;i<60;i++){
+                            res.push(Math.round(Math.random()*100))
+                        }
+                        return res;
+                    })();
+                    option.series[0].data = _data1;
+                    myChart.setOption(option);
+                    flag++;
+                }
+            }else if(params.componentType == 'xAxis'){
+                if(flag == 0){
+                option.xAxis.data = data0;
+                option.series[0].data = data1;
+                myChart.setOption(option);
+                flag++;
+                }else if(flag == 1){
+                    var _hour = params.value.substring(0,2);
+                    var _data = (function(){
+                        var res = [];
+                        for(var i=0;i<60;i++){
+                            if(i<10){
+                                res.push(_hour+':0'+i);
+                            }else{
+                                res.push(_hour+':'+i);
+                            }
+                        }
+                        return res;   
+                    })();
+                    option.xAxis.data = _data;
+                    var _data1 = (function(){
+                        var res = [];
+                        for(var i=0;i<60;i++){
+                            res.push(Math.round(Math.random()*100))
+                        }
+                        return res;
+                    })();
+                    option.series[0].data = _data1;
+                    myChart.setOption(option);
+                    flag++;
+                }
+            }
+            console.log(params);
+        });
+        myChart.setOption(option);
+
+    </script>
+</body>
+</html>
