@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var message = undefined;
+    console.log(message == undefined); //true
+    var add;
+    console.log(add == undefined); //true
+    //未经初始化的值默认是undefined
+    console.log(typeof message); //undefined
+    console.log(typeof add); //undefined
+    console.log(typeof xyz); //undefined
+    //对于未被初始化和未声明的变量执行typeof操作都返回了undefined的值
+
+
+    console.log(add == message);  //true
+</script>
+</body>
+</html>

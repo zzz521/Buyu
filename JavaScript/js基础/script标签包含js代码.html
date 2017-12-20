@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    alert("<\/script>");
+    //如果不加转义字符的话，会报错
+    //浏览器在解析script标签内部的代码时，遇到字符串<//script>时会认为是结束的标签而出错，可以通过\转义字符解决
+
+</script>
+<!--<script type="text/javascript" src="example.js" />-->
+<!--这种引入方式是错误的，不符合HTML规范，得不到某些浏览器，尤其是IE的正确解析-->
+</body>
+</html>
