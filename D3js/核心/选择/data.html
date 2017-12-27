@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    var matrix = [
+        [1123,2314,4114,23233],
+        [7844,2324,5234,7254],
+        [4554,4556,8813,4568],
+        [14,25,98,35]
+    ]; //定义一个二维数组
+
+    var tr = d3.select('body').append('table').selectAll('tr').data(matrix)//绑定二维数组，给表格的每一行传递一个子数组
+        .enter().append('tr');
+    var td = tr.selectAll('td').data(function (d) {
+        return d;
+    }).enter().append('td').text(function (d) {
+        return d;
+    })
+
+    //data有两个参数，第一个参数values是一组数据值或返回一组值的函数，如果没有指定第二个key函数，则values数组中第一个数
+    //据值被分配给选择集中第一个元素，第二个数据值分配给第二个元素，以此类推。
+    //第二个key函数是控制数据如何连接元素的，每个数据数组中调用一次，并又被选择中的每个dom调用一次
+
+    //如果没有指定values参数，则此方法返回选择中的第一组元素已绑定数据组成的数组
+</script>
+</body>
+</html>

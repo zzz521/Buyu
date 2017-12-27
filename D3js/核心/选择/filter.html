@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回一个新的选择只包含参数selector是true的元素
+    //参数可以是一个函数或选择字符串
+
+    svg.selectAll('text').filter(function (d,i) {
+        return i%2 == 0;
+    }).style('color','red');
+    //做过滤 将偶数样式变成红色
+</script>
+</body>
+</html>

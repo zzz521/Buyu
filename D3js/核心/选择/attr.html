@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">哈哈哈哈</div>
+<script src="d3.min.js"></script>
+<script>
+    d3.select('#div1').attr({//一次设置多个属性值  括号里是一个对象
+        'width':20,
+        'x':function (d,i) {   //d代表当前元素绑定的数据    i代表当前元素在选中元素集中的索引
+            return 20+i;
+        },
+        'y':function (d) {
+            return 20;
+        }
+    })
+        .attr('fill','steelblue');  //一次设置一个属性值
+
+    //如果没有value参数，则返回选择集中第一个非空元素中指定属性的值
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc">哈哈哈哈</div>
+<script src="d3.min.js"></script>
+<script>
+    d3.select('#div1').style('height');//返回第一个非空元素中名为height的样式值
+    d3.select('#div1').style('width','200px');//设置
+    d3.select('#div1').style(null);//设置   删除width属性的样式
+
+    //支持多属性操作
+    d3.select('#div1').style({
+        'stroke-width':5,
+        'stroke':function (d,i) {
+            return 'rgb('+10*d+','+10*(25-d)+','+d+')';
+        }
+    })
+</script>
+</body>
+</html>

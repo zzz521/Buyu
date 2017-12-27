@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //与enter()相反，返回需要移除的元素选择，执行后元素在当前选择中不存在，但是在当前dom文档中存在，一般后接remove()
+
+    d3.select('body').selectAll('div').data([1,2,3,4,5,6]).enter().append('div').text(function (d) {
+        return d;
+    });
+
+    var divs = d3.select('body').selectAll('div').data([7,8,9,4,5,6],function (d) {//有相同的数据
+        return d;
+    });
+    divs.enter().append('div').text(function (d) {
+        return d;
+    });
+    divs.exit().remove(); //将第一个数组中退出数据对应的元素删除
+    //数据元素个数少于HTML中需要绑定的元素个数时，会得到多余的标签元素，将这些元素放到exit()中
+</script>
+</body>
+</html>

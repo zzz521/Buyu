@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc">hahaha</div>
+<div></div>
+<script src="d3.min.js"></script>
+<script>
+    //基于innerHTML属性
+    //value取代任何已有的子元素
+    d3.select('div').html('<h1>今天是个好日子</h1>');
+    //value参数可以是函数
+    //value是常数时所有元素给予相同的html元素
+    console.log(d3.select('div').html());//如果没有参数，返回选中的html内容
+    d3.select('div').html(null);//value为null时删除元素的html内容
+
+
+</script>
+</body>
+</html>

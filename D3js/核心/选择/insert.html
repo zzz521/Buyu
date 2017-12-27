@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc"></div>
+<script src="d3.min.js"></script>
+<script>
+    var svg = d3.select('.abc').append('svg');
+    svg.insert('rect');//如果没有第二个before参数，等同于append；
+    svg.insert('cycle','rect');//在第二个参数代表的元素前添加第一个参数代表的元素
+
+</script>
+</body>
+</html>

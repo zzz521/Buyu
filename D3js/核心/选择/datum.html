@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div data-username="D3 users"></div>
+<div data-username="D3 fans"></div>
+<script src="d3.min.js"></script>
+<script>
+    //获取或设置每个选定的元素绑定的数据
+    //如果指定了value参数，为设置元素的绑定数据为指定的value值
+    //如果value为null，则删除绑定的数据
+    //如果没有指定value，则返回绑定的数据值
+
+    d3.selectAll('div').datum(function () {//这里的datum将自定义数据属性和div绑定
+        return this.dataset;  //获取自定义数据属性
+    }).text(function (d) {
+        return d.username; //使用获取的数据设置文本的值
+    });
+</script>
+</body>
+</html>

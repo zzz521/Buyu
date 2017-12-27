@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc"></div>
+<script src="d3.min.js"></script>
+<script>
+   var _div =  d3.select('.abc').append('div');
+    //向选中的元素加入div元素
+    //返回的新选择集包括这个新添加的子元素 每个元素都继承了已绑定的数据
+   _div.append('div:h1'); //等同于_div.append('h1');
+   //name参数可以被指定为一个常量字符串或一个函数
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="this is aaaa~">
+<script src="d3.min.js"></script>
+<script>
+    //property用来操作元素具有的内置属性，如input的value，复选框的checked  第二个参数可以是函数
+    d3.select('input').property('value','xiugai');//这样就是将input中的value属性值设置为xiugai
+    d3.select('input').property('value',2);//如果value是常数，则为所有选中的元素赋予相同的值
+    d3.select('input').property(null);//删除value属性
+
+    //支持多属性操作{}
+
+    console.log(d3.select('input').property('value')); //返回属性值
+</script>
+</body>
+</html>

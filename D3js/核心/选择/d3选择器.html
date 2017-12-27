@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>苹果</td>
+            <td class="test">香蕉</td>
+            <td>西瓜</td>
+        </tr>
+        <tr>
+            <td>菠萝</td>
+            <td>桃子</td>
+            <td class="test">柚子</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th id="test">可乐</th>
+            <th class="test">牛奶</th>
+        </tr>
+        <tr>
+            <th>啤酒</th>
+            <th>绿茶</th>
+        </tr>
+    </table>
+
+    <script src="d3.min.js"></script>
+    <script>
+        //d3选择器如果没有匹配到的对象，则返回一个空对象
+        console.log(d3.select('tr')); //选择第一个tr元素
+        console.log(d3.select('#test'));//选择第一个id为test的元素
+        console.log(d3.select('.test'));//选择第一个class为test的元素
+
+        //d3.select选择单个匹配的元素
+
+
+        //d3.select(node);
+
+
+        d3.select(document.body).on('click',function () {
+            d3.select(this).style('color','red');
+        });
+
+        d3.selectAll('td');
+        //选择所有td标签，返回的结果是一个数组
+
+        //d3.selectAll(node);
+
+        d3.selectAll(this.children);//选择当前元素下的所有子元素
+        d3.selectAll(document.links);//选择所有的超链接
+
+
+
+
+    </script>
+</body>
+</html>

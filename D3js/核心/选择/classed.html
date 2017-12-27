@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc">哈哈哈哈</div>
+<script src="d3.min.js"></script>
+<script>
+    console.log(d3.select('#div1').classed('sesese'));//false
+    //如果没有指定value 则返回与name参数匹配的第一个非空元素是否绑定了指定的css类，true表示绑定，false表示未绑定
+
+
+    d3.select('#div1').classed({//根据索引给元素添加不同的css类
+        'even':function (d,i) {
+            return i%2 == 0? true:false;
+        },
+        'odd':function (d,i) {
+            return i%2 == 0? false:true
+        }
+    })
+
+    //如果指定了value，值为true时绑定name参数指定的css类，为false时移除这个类
+    d3.select('#div1').classed('abc',false);
+    d3.select('#div1').classed('xyz',true);
+
+</script>
+</body>
+</html>

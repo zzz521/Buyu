@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc">哈哈哈哈</div>
+<script src="d3.min.js"></script>
+<script>
+    console.log(d3.select('#div1').text());//返回文本内容
+
+    d3.select('#div1').text('this is text！！！');//设置为指定的值
+    d3.select('#div1').text(function () {
+        return 'haha';
+    });//设置为指定的值
+
+</script>
+</body>
+</html>

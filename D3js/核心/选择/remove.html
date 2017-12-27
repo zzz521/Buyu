@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="abc">hahaha</div>
+<script src="d3.min.js"></script>
+<script>
+    var _div = d3.select('.abc').remove();//从选中的文档中删除所有的元素，并将这些元素返回
+    console.log(_div);
+</script>
+</body>
+</html>
