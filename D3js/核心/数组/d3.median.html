@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回给定数组中所有元素以R-7^8算法得到的中位数
+
+    console.log(d3.median([1,5,3,11]));//4   如果数组中元素数量偶数，则返回位于中间值的两个元素相加的平均数
+    console.log(d3.median([1,7,3,11]));//5  如果数组中元素数量奇数，则返回位于中间的数值
+    console.log(d3.median([1,5,3,9,11]));//5
+    console.log(d3.median(['1','5','3','11']));//4
+    console.log(d3.median([]));//undefined
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回最小值和最大值  一个数组
+    //等同于同时调用d3.min和d3.max
+
+    console.log(d3.extent([3,2,8,11])); //[2，11]
+    console.log(d3.extent(['31','9','8','29'])); //['29','9']  返回字符串第一个数字最小的
+    console.log(d3.extent([]));//[undefined,undefined]
+</script>
+</body>
+</html>
