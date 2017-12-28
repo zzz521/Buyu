@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <svg></svg>
+</div>
+<script src="d3.min.js"></script>
+<script>
+    //selection.select(selector)
+    //选择器后接一个选择器
+
+    d3.select('#div1').select('svg');
+    //对当前选择的每一个元素，选中其后代第一个匹配选择器select的子元素
+    //如果没匹配到，则返回一个空值null，操作符自动跳过null元素，帮吃现有选择的索引
+</script>
+</body>
+</html>

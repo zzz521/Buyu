@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg></svg>
+<script src="d3.min.js"></script>
+<script>
+    //为当前选择的每个元素，调用指定的函数
+    //遍历
+
+    var dataset = [1,2,3,4,5,6,7,8,9,10];
+    //数据集
+    var color = d3.scale.category20();
+    //颜色比例尺
+    d3.select('svg').selectAll('circle').data(dataset)
+        .enter().append('circle');
+    //使用数据集添加10个圆
+    d3.selectAll('circle').each(function (d) {
+        d3.select(this).attr({
+            cx:function (d) {
+                return 20*d;
+            },
+            cy:100,
+            r:function (d) {
+                return 3*d;
+            },
+            fill:color(d)
+        })
+    })
+    //使用each为每个圆设置属性
+</script>
+</body>
+</html>

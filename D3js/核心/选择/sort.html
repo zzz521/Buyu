@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    svg.selectAll('text').sort(function (a,b) {
+        return a.value - b.value;
+    })
+    //传入两个数据元素a,b进行比较
+    //返回值为负， a应该在b前，返回值为正，a应该在b后
+    //否则相等
+</script>
+</body>
+</html>
