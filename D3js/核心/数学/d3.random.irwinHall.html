@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回一个符合欧文霍尔分布的随机数
+    //count参数用于指定独立变量的个数
+
+
+
+
+    var values = d3.range(1000).map(d3.randomIrwinHall(10));
+    console.log(values);
+</script>
+</body>
+</html>

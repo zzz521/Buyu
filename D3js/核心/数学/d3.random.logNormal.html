@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回一个符合对数正太分布的随机数
+    //第一个参数mean是期望值 默认0.0
+    //第二个参数deviation是标准差 默认1.0
+
+
+    var values = d3.range(1000).map(d3.randomLogNormal(0.5,0.1));
+    console.log(values);
+</script>
+</body>
+</html>
