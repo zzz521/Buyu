@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //插值器
+    //返回一个介于a和b之间的默认插值器，插值器的类型基于第二个参数b的类型
+    //如果b是color类型，则返回interpolateRgb插值器
+    //如果b是string类型，则返回interpolateString
+    //如果b是array类型，则返回interpolateArray
+    //如果b是object类型，且不能强转为数字类型，则返回interpolateObject
+    //否则，返回interpolateNumber
+    //基于b的类型，a被强转为一个适当的对应类型
+
+    svg.select('circle')
+        .transition().duration(100)
+        .styleTween('fill',function (d,i,val) {
+            return interpolate('green','orange')   //值域为绿色到黄色的插值器
+        })
+</script>
+</body>
+</html>

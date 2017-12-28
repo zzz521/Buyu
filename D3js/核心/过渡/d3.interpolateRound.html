@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回一个a和b两个数字之间的数字插值器 但它会将结果值四舍五入为最近的整数
+
+    var inter = d3.interpolateRound(0,10);
+    inter(0.55);//返回6
+</script>
+</body>
+</html>

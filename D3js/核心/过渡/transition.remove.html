@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过渡结束后删除选定的元素，如果选定的元素有新的过渡计划，则元素不会被删除，但end事件仍会被调度
+    svg.select('circle')
+        .transition()
+        .duration(1500)
+        .attr('r',0)
+        .remove()//过渡结束后删除元素
+</script>
+</body>
+</html>

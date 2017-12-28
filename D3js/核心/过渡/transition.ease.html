@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //缓动函数
+    //自己的理解就是动画在规定的持续时间内，什么时候快什么时候慢
+    d3.select('circle').attr('r',le-6)  //设置圆初始半径
+        .transition().duration(1000)//持续1000ms的动画
+        .ease(Math.sqrt) //指定缓动函数为Math对象的平方根函数
+//        .ease('linear)  //线性缓动
+        .attr('r',100);//动画结束时的半径4
+</script>
+</body>
+</html>

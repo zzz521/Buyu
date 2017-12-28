@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //为当前过渡的每一个元素调用指定的函数
+    //第一个type参数可选
+    //type为start时，在过渡的第一个异步回调中被调用，先于任何补间函数。end在过渡最后一个异步回掉中被调用，晚于所有补间函数
+
+
+    svg.selectAll('circle')
+        .transition()
+        .duration(1000)
+        .attr({'opacity':0,'r':50})   //过渡结束时元素的属性
+        .each('start',function (d,i) {
+            d3.select(this).attr({   //最开始时元素的属性
+                'fill':'none',
+                'stroke':color(i),
+                'stroke-width':5,
+                'opacity':1
+            })
+        })
+        .each('end',function (d,i) {
+            d3.select(this).remove();   //过渡结束后移除元素
+        })
+</script>
+</body>
+</html>

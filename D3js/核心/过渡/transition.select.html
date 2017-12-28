@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+//在当前过渡的每个元素中，选择与指定的选择字符串匹配的第一个子元素
+    //相当于 selection.select(selector).transition();
+    //这个选择器是父类选择器中的子类选择器
+    //继承当前的过渡缓动方式，持续时间和延迟时间
+
+
+//为过渡选择的第一个子元素设置过渡停止后的属性值
+    svg.selectAll('g')
+        .transition()
+        .duration(500)
+        .attr('transform','translate(0,50)')
+        .select('rect')
+        .attr('width',100)  //设置rect元素矩形过渡结束后的宽为100
+</script>
+</body>
+</html>

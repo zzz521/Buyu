@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //启动一个自定义动画计时器，重复调用指定的函数，知道它返回true
+    //计时器启动后没办法取消 所以要确保function返回true
+    //如果要延迟一段时间，可选参数delay 延时相对于time参数  time参数表示计时器什么时候调用函数，如果没有指定time参数，则默认Date.now（）
+
+
+    var i = 0;
+    d3.timer(notify,4*1000,Date.now());  //延迟4秒执行notify函数
+
+    function notify(d) {
+        svg.select('text').text(i);    //改变文本内容为0-1000的数字
+        return i++ >= 1000;
+    }
+</script>
+</body>
+</html>

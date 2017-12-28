@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 800px;
+            height: 800px;
+            background: black;
+        }
+    </style>
+</head>
+<div id="div1"></div>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过渡结束时样式的值
+    //初始值是当前样式值
+    d3.select('#div1').transition().
+        duration(1000)
+        .style('background-color','white');//结束时的样式
+</script>
+</body>
+</html>

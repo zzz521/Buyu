@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过渡结束时的属性值
+    //初始值是当前属性值
+
+    d3.select('circle').attr('fill','red')
+        .transition().duration(1000)
+        .attr('fill','blue');
+</script>
+</body>
+</html>

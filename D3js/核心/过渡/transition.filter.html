@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过滤过渡，返回一个新的过渡只包含与指定选择字符串匹配的元素。
+
+    svg.selectAll('rect')
+        .transition()
+        .duration(1000)
+        .filter(':nth-child(odd)')   //过滤奇元素         所有过渡元素中的奇元素顺时针旋转45°
+        .attr('transform','rotate(45)');
+</script>
+</body>
+</html>

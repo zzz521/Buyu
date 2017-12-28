@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //调用指定的函数一次
+    //call操作符和手动执行一个函数是一样的，它更适用于方法链
+
+
+    function setEndAttr(transition) {
+        transition.attr({
+            'opacity':0,'r':50
+        })
+    }
+
+    svg.selectAll('circle')
+        .transition()
+        .duration(1500)
+        .call(setEndAttr);   //默认传自身一个参数
+</script>
+</body>
+</html>

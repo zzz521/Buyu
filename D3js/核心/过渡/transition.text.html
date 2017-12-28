@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>ahaha</div>
+<script src="d3.min.js"></script>
+<script>
+    //过渡开始时会设置所有选定元素的文本内容为指定值
+    d3.select('div').transition()
+        .duration(1000)
+        .text('asd');
+</script>
+</body>
+</html>

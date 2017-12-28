@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //由指定的类型和可选参数返回一个内置的缓动函数
+    //默认的缓动函数是cubic-in-out  它提供了合适的慢入慢出动画
+
+    svg.selectAll('circle')
+        .transition()
+        .duration(100)
+        .ease(d3.ease('bounce'))  //动画效果为弹跳
+        .attr('r',100)
+</script>
+</body>
+</html>

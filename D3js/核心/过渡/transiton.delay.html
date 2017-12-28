@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    svg.selectAll('rect').transition() //开启动画
+        .delay(function (d,i) {
+            return i*500;//设置延迟时间
+        }).attr('transform','rotate(45)');
+    //动画结束后，顺时针旋转
+    //delay参数可以是常量可以是函数
+
+    //如果delay没有参数，则返回过渡中第一个非空元素绑定的延迟时间
+</script>
+</body>
+</html>

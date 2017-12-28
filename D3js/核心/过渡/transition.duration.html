@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过渡选择中每一个元素的持续时间
+    svg.selectAll('rect').transition() //开启动画
+        .duration(500) //设置动画持续时间500ms
+        .delay(function (d,i) { //设置延迟时间
+            return i*500;
+        }).attr('transform','rotate(45');
+</script>
+</body>
+</html>

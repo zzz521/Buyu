@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //用指定的补间函数，过渡指定的值
+    //过渡的开始结束由函数决定
+    //补间函数在元素过渡开始时调用 三个参数，d,i,a  a代表当前属性值
+
+    svg.select('circle')
+        .transition()//开启动画
+        .duration(1500)//动画持续时间
+        .attrTween('r',tween) //对半径调用自定义的补间函数
+
+    function tween() {
+        return d3.interpolateNumber(a,2*a);
+        //补间函数，设置半径从a到2*a过度
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //过渡元素上创建一个新的过渡
+    //在当前过渡结束后启动
+    //新的过渡集成当前过渡的持续时间和延续时间，可以用来定义链式过渡
+
+
+    svg.select('circle')
+        .transition().duration(500)
+        .attr('r',50)   //设置过渡结束后半径为50
+        .transition().duration(500).delay(1000)
+        .attr('r',5);  //第二次过渡结束后半径为5
+</script>
+</body>
+</html>
