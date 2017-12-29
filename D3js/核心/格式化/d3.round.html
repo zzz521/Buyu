@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //返回参数x四舍五入到小数点后的n位，如果n被省略，它默认为零，其结果是一个数
+
+    console.log(d3.round(1.23)); //返回1
+    console.log(d3.round(1.23,1)); //返回1.2
+    console.log(d3.round(1.25,1)); //返回1.3
+    console.log(d3.round(12.5,0)); //返回13
+    console.log(d3.round(12.5,-1));//返回10
+</script>
+</body>
+</html>

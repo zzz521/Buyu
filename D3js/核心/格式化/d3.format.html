@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //根据指定的格式化说明符作为参数，返回对应的格式化函数
+
+
+    var f01 = d3.format('03'); //激活补零功能 显示三位数字
+    console.log(f01(19));  //'019'
+
+    var f02 = d3.format(',');//激活千分符分个数字
+    console.log(f02(12389124));//'12,389,124'
+
+    var f03 = d3.format('+');//显示正数的符号
+    console.log(f03(-45)); //'-45'
+    console.log(f03(45)); //'+45'
+
+    var f04 = d3.format('.2%');//百分数保留两位小数
+    console.log(f04(0.14342)); //'14.34%'
+
+    var f05 = d3.format('e');//指数
+    console.log(f05(4561)); //'4.561000e+3'
+
+    var f06 = d3.format('');// ,g的缩写
+    console.log(f06(4.561000e+3)); //4561
+</script>
+</body>
+</html>

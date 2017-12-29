@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //根据指定的值返回前置对象
+
+    //返回的前置对象有以下两个属性
+    //symbol 前缀符号，如M代表百万
+    //scale 比例函数 将数字转换为相应的前缀比例
+
+    var prefix = d3.formatPrefix(65456464564);
+    console.log(prefix.symbol);
+    console.log(prefix.scale(1.21e9));
+    //用在对d3,format对字符串的格式化中
+</script>
+</body>
+</html>
