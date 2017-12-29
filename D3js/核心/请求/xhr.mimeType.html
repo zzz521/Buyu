@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //mime类型   如txt  jpg  avi  gif  html等
+
+    //xhr.mimeType([type])
+
+    //如果指定了type参数，就会设置请求的mime类型为指定的type值，如果type为null 就会清除当前的mime类型
+    //如果没有指定type，则返回当前的mime类型，默认是null
+
+
+    d3.xhr('xhrText.txt').mimeType('text/plain')
+        .get(function (error,request) {
+            console.log(error);
+            console.log(request);
+        })
+</script>
+</body>
+</html>

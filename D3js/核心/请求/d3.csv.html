@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    d3.csv('xhrCsv.csv',function (error,csv) {
+        if(error){
+            console.log(error);
+        }else{
+            csv.forEach(function (row) {
+                console.log(row.who+'家有'+row.cat+'只猫,'+row.dog+'条狗')；
+            })
+        }
+    })
+</script>
+</body>
+</html>

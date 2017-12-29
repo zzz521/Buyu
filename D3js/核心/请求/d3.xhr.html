@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //为指定的url创建一个异步访问服务器的请求
+    //如果指定了回调函数，会发出get请求，资源被加载或者请求失败时回调函数会被异步调用
+
+    d3.xhr('xhrText.txt','text/plain',function (error, success) {
+        if(error){
+            console.log(error);
+            d3.select('body').append('p')
+                .text(error.statusText+""+error.responseURL);
+            //error也是一个XMLHttpRequest对象  这里设置段落标签的内容为返回的响应状态文本和访问的url地址
+        }else{
+            console.log(success);
+            d3.select('body').append('p')
+                .text(success.responseText);
+            //设置段落标签的内容为返回的响应文本
+        }
+    })
+</script>
+</body>
+</html>

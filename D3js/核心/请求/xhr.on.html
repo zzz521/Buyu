@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //从这个请求添加或者移除指定类型的事件监听器
+
+    //xhr.on(type[,listener]);
+    //如果注册了一个相同类型的监听器，就会在添加新监听器前移除他
+    //给同一个事件类型注册多个监听器，事件类型将遵循可选的命名空间
+    //例如 load.foo load.bar
+
+    //传递null可以移除监听器
+
+    //如果没有指定类型，返回当前已分配的监听器
+
+    var xhr = d3.json(url)
+        .on('progress',function () {
+            console.log('progress',d3.event.loaded);
+        })
+        .on('load',function (json) {
+            console.log('success',json);
+        })
+        .on('error',function (error) {
+            console.log('failure',error);
+        })
+</script>
+</body>
+</html>

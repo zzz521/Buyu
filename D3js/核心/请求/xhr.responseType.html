@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //xhr.responseType(type)
+    
+    //如果指定了type则设置响应类型
+    //如果type没指定，则返回当前的相应类型 默认是""
+    
+    //创建BLOB格式的图片网址
+    
+    d3.xhr('xhrBlob.png')
+        .responseType('blob')  //设置相应类型为'blob'
+        .get(function (error,request) {
+            if(error){
+                console.log(error);
+            }else{
+                var blob = request.response; //请求返回的blob对象
+                d3.select('img')
+                    .attr('src',window.URL.createObjectURL(blob));
+            }
+        })
+</script>
+</body>
+</html>

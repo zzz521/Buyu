@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //可选参数mimeType可指定为application/xml
+
+    d3.xml('circle.svg','image/svg+xml',function (error,xml) {
+        if(error){
+            console.log(error);
+        }else{
+            document.body.appendChild(xml.documentElement);
+            //添加dom节点
+        }
+    })
+</script>
+</body>
+</html>

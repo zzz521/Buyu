@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //根据制定的url创建一个json文件请求
+
+
+    d3.text('attrJson.json',function (error,json) {
+        if(error){
+            console.log(error);
+        }else{
+            d3.select('body').append('svg').append('circle').attr(json);
+        }
+    })
+</script>
+</body>
+</html>

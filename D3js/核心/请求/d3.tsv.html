@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    d3.tsv('xhrTsv.tsv',function (error,tsv) {
+        if(error){
+            console.log(error);
+        }else{
+            console.log(tsv)
+        }
+    })
+</script>
+</body>
+</html>

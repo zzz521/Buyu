@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //xhr.response(value)
+
+    //如果指定了value参数，则设置响应的值函数为指定的值函数
+    //如果没指定value，则返回当前相应的值函数 默认恒等函数
+    //响应的值函数用来映射响应的XMLHttpRequest对象为相应的数据类型
+
+    //请求一个json文件内容是一个json对象
+    {
+        'key':'age',
+        'value':23
+    }
+
+    d3.xhr('xhrJson.json')
+        .response(function (request) {
+            return JSON.parse(request.responseText);
+        })
+        .get(function (error,request) {
+            if(error){
+                console.log(error);
+            }else{
+                console.log(request);
+            }
+        })
+</script>
+</body>
+</html>

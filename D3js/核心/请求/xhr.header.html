@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //xhr.header(name[,value])
+    //修改请求头
+    //如果指定了value参数，则设置name参数指定的属性的值为value的值
+    //如果value是null，移除name参数指定的请求头
+    //如果没有value参数，则返回请求头中指定名称的属性的当前值
+
+
+    //请求头只可以在发送请求前被修改
+
+    d3.xhr('xhrText.txt')
+        .header('Content-Type','application/x-www-form-urlencoded')
+        .post('a=2&b=3',function (error,data) {
+            //回调函数
+        })
+</script>
+</body>
+</html>
