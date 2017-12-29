@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //设置x或y访问器为指定的常量或函数
+    //设置x y的坐标点
+    var json = [
+        {x:100,y:100},{x:150,y:150},{x:200,y:100},
+        {x:250,y:150},{x:300,y:100},{x:350,y:150}
+    ];
+
+
+    line.x(function (d,i) {
+        return d.x;
+    });
+    line.y(function (d,i) {
+        return d.y;
+    });
+    var line = d3.svg.line()
+
+    var _json = line(json);
+    console.log(_json);
+</script>
+</body>
+</html>

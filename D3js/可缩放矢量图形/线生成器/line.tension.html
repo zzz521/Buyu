@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //返回当前的张力值，或设置当前的张力值参数tension 张力值必须为常数 取值范围[0,1]
+    //张力值只会影响基本样式曲线 默认为0.7
+    //可以理解为切线长度，1表示切线长度0，即折点垂直弯曲，0表示折点最大弧度弯曲
+
+
+    var svg = d3.select('body').append('svg').attr({
+        'width':900,
+        'height':900
+    });
+
+
+    var json = [
+        {x:100,y:100},{x:150,y:150},{x:200,y:100},
+        {x:250,y:150},{x:300,y:100},{x:350,y:150}
+    ];
+
+    var line = d3.svg.line();
+    line.x(function (d,i) {
+        return d.x;
+    });
+    line.y(function (d,i) {
+        return d.y;
+    });
+
+        line.interpolate('cardinal');   //基本样条曲线   tension可以对其进行修改
+    //    line.interpolate('basis-open');
+//    line.interpolate('step-after');
+
+    line.tension(0.5);
+    line.tension(1);
+
+
+    svg.append('path')
+        .attr({
+            'd':function () {
+                return line(json);
+            },
+            'transform':'translate(0,0)'
+        })
+        .style({
+            'stroke':'steelblue',
+            'stroke-width':5,
+            'fill':'white'
+        })
+</script>
+</body>
+</html>

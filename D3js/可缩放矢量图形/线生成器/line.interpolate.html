@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //如果指定了参数，则设置插值器的模式为制定的参数或函数
+    //参数可以是字符串或者函数
+
+//    line.interpolate('monotone');
+
+
+    var svg = d3.select('body').append('svg').attr({
+        'width':900,
+        'height':900
+    });
+
+
+    var json = [
+        {x:100,y:100},{x:150,y:150},{x:200,y:100},
+        {x:250,y:150},{x:300,y:100},{x:350,y:150}
+    ];
+
+    var line = d3.svg.line();
+    line.x(function (d,i) {
+        return d.x;
+    });
+    line.y(function (d,i) {
+        return d.y;
+    });
+
+//    line.interpolate('monotone');
+//    line.interpolate('basis-open');
+    line.interpolate('step-after');
+ //插值器其实就是生成线的样式 比如曲线，直线，凹凸，环线等等
+
+    svg.append('path')
+        .attr({
+            'd':function () {
+                return line(json);
+            },
+            'transform':'translate(0,0)'
+        })
+        .style({
+            'stroke':'steelblue',
+            'stroke-width':5,
+            'fill':'white'
+        })
+
+
+</script>
+</body>
+</html>
