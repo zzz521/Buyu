@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.min.js"></script>
+<script>
+    //等价于本地语言环境的d3.rime.format
+    //将js的日期对象格式化为日期和时间字符串
+
+    var f = d3.time.format('%c');
+    console.log(f(new Date(2016,0,1)));  //返回Fri Jan 1 00:00:00 2016
+
+
+    //用locale定义的中文简体环境的时间格式化函数结果为
+    var lf = d3.locale.zh_CN.timeFormat('%c');
+    console.log(lf(new Date(2016,0,1))); //返回 星期五 一月 1 00:00:00 2016
+</script>
+</body>
+</html>
