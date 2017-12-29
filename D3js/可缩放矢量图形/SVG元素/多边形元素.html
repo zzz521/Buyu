@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="d3.js"></script>
+<script>
+    //由一组相连的直线线段构成的闭合图形
+    var svg = d3.select('body').append('svg').attr({
+        'width':900,
+        'height':900
+    });
+
+
+    svg.append('polygon')
+        .attr({
+            // polygon从点(100,100)到(150,150)到(200,100)到(250,150)到(300,100)
+            'points':'100,100 150,150 200,100 250,150 300,100'
+        })
+        .style({
+            'stroke':'tomato',
+            'stroke-width':5,
+            'fill':'white'
+        })
+</script>
+</body>
+</html>

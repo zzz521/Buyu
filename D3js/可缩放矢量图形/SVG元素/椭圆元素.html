@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="d3.js"></script>
+<script>
+    var svg = d3.select('body').append('svg').attr({
+        'width':900,
+        'height':900
+    });
+
+
+
+    svg.append('ellipse').attr({
+        'cx':100,'cy':100, //水平圆心坐标
+        'rx':70,//水平半径
+        'ry':50//竖直半径
+    }).style({
+        'stroke':'orchid', //ellipse 水平边框颜色
+        'stroke-width':5, //边框粗细
+        'fill':'lightpink'  //填充色
+    })
+</script>
+</body>
+</html>

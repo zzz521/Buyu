@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    var svg = d3.select('body').append('svg').attr({
+        'width':800,
+        'height':900
+    });
+
+    svg.append('circle').attr({
+        'cx':100,'cy':100,   //圆心坐标
+        'r':50  //circle半径
+    }).style({
+        'stroke':'wheat',  //边框颜色
+        'stroke-width':5, //边框粗细
+        'fill':'yellowgreen' //circle填充色
+    })
+</script>
+</body>
+</html>

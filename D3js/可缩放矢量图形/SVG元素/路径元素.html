@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="d3.js"></script>
+<script>
+    //路径元素代表形状的轮廓
+    var svg = d3.select('body').append('svg').attr({
+        'width':900,
+        'height':900
+    });
+
+    //d属性定义路径数据
+    //有moveto(M),lineto(L),closepath(Z)等命令
+    //几乎可以用来画任何形状
+    svg.append('path')
+        .attr({
+            //path从点(100,100)到(150,150)到(200,100)到(250,150)到(300,100)
+            'd':'M100,100 L150,150 L200,100 L250,150 L300,100',
+            'transform':'translate(100,50)'     //path路径图平移 水平向右100 ，竖直向下50
+        })
+        .style({
+            'stroke':'skyblue',
+            'stroke-width':5,
+            'fill':'black'   //这个填充色是将第一个点到最后一个点链接起来 然后将被线段包围起来的空间填充颜色
+        })
+</script>
+</body>
+</html>
