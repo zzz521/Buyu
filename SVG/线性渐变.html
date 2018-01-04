@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="1000" height="1000">
+    <defs>
+        <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(255,255,0); stop-opacity: 1"/>
+            <stop offset="100%" style="stop-color:rgb(255,0,0); stop-opacity: 1"/>
+        </linearGradient>
+    </defs>
+
+
+    <ellipse rx="85" ry="40"  cx="200" cy="200" style="fill:url(#orange_red)"/>
+
+
+    <!--必须先通过def标签嵌套-->
+    <!--<linearGradient/>标签的id属性可以为渐变定义一个名称，通过元素的style中的fill:url(#id)引用-->
+    <!--<linearGradient/>标签的x1，y1，x2，y2可以定义渐变的开始和结束的位置-->
+    <!--渐变的颜色范围可以由多种颜色组成，每种颜色通过一个<stop/>标签来规定，offset属性定义渐变的开始和结束的位置-->
+    <!--stop-color表示当前offset的颜色-->
+    <!--当x1和x2相等，y1和y2不等时，是垂直渐变-->
+    <!--当x1和x2不等，y1和y2相等时，是水平渐变-->
+    <!--也可以x1不等x2，y1不等y2-->
+</svg>
+</body>
+</html>
