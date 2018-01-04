@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="1000" height="1000">
+    <defs>
+        <radialGradient id="grey_blue" cx="70%" cy="70%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color: rgb(200,200,200);stop-opacity: 0"/>
+            <stop offset="100%" style="stop-color: rgb(0,0,255);stop-opacity: 1"/>
+        </radialGradient>
+    </defs>
+
+    <ellipse cx="230" cy="200" rx="110" ry="100"
+             style="fill:url(#grey_blue)"/>
+
+
+    <radialGradient/>的cx，cy和r定义外圈，fx和fy定义内圈
+    具体来说 r是内层和外层的渐变半径，当r等于100%时，从圆心到最外层渐变，当r等于50%时，渐变半径为圆半径的一半
+    cx，cy代表从最外圈开始，渐变的位置
+</svg>
+</body>
+</html>
