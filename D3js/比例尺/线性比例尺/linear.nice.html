@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //用于扩展定义域使得它由优化的整数值开始和结束
+    //这种方法会修改比例尺的定义域
+    //如果定义域有两个以上的值，则优化定义域只影响第一个值和最后一个值
+
+
+    var　linearScale = d3.scale.linear()
+        .domain([0.22342,0.49382,0.939184])
+        .range([0,100]);
+
+    console.log(linearScale.domain()); //[0.22342,0.49382,0.939184]
+
+//    linearScale.nice();
+    console.log(linearScale.domain());//[0.2, 0.49382, 1]
+
+    //如果指定了参数，可以控制定义域的边界范围
+
+//    linearScale.nice(0.000001);
+    console.log(linearScale.domain());//[0, 0.49382, 1000000]
+
+
+    linearScale.nice(10000);
+    console.log(linearScale.domain());//[0.22340000000000002, 0.49382, 0.9392]
+
+
+
+</script>
+</body>
+</html>

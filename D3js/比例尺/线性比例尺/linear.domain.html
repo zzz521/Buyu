@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //linear.domain([numbers])
+    //如果指定了参数，则设置比例尺的定义域为指定的数组
+    var dataset = [0,1,3,4,5,6,7,8,9];
+    var linearScale = d3.scale.linear();
+    linearScale.domain([0,d3.max(dataset)])
+        .range([0,height]);
+
+
+    //一般定义域通常只有两个值，但是也可以指定两个以上的值，在这种情况下，值域必须有相同数量的值
+    //这样定义域和值域就被划分成连续的多个分段线性比例尺
+
+    var color = d3.scale.linear()
+        .domain([-1,0,1])
+        .range(['red','white','green']);
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    var linearScale = d3.scale.linear().domain([0,10]).range([0,100]);
+    console.log(linearScale(3));  //30
+
+    //为值域中的值y返回定义域相应的值x， 代表从值域到定义域的逆映射
+    console.log(linearScale.invert(30));  //3
+    //只有值域是数字时才支持反转操作符
+</script>
+</body>
+</html>

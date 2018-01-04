@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //linear.ticks([count]);
+
+    //从比例尺的定义域返回大约count个数
+    //返回的刻度值是均匀间隔的，人类可读的，并且在定义域内
+
+
+    var x = d3.scale.linear().domain([-1,1]).range([0,10]);
+    console.log(x.ticks()); // [-1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1]
+
+    console.log(x.ticks(5));// [-1, -0.5, 0, 0.5, 1]
+</script>
+</body>
+</html>

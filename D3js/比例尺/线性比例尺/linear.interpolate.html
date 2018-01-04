@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //linear.interpolate(factory);
+    //如果指定了参数factory，则使用指定的插值器设置比例尺的输出值
+    //如果未制定，则返回比例尺当前的插值器
+
+    var linearScale = d3.scale.linear();
+    var a = linearScale.interpolate(d3.interpolateNumber);
+    console.log(a(2));  //2
+    var b = linearScale.interpolate(d3.interpolateString);
+    console.log(b(4));  //'4'
+</script>
+</body>
+</html>

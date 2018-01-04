@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //linear.clamp(boolean);
+
+    //用于启用或者禁用闭合，默认禁用
+    //比例尺映射规则不变，定义域之外的值将被映射为值域之外对应的一个值
+    //例如定义域和值域都是[0,1] 但输入值2将会返回值2
+    //如果闭合被启用，则比例尺的返回值总在值域[0,1]之内
+    //如果未指定参数，则返回比例尺当前域是否闭合
+
+    var linearScale = d3.scale.linear()
+        .domain([0,10])
+        .range([0,100]);
+    console.log(linearScale.clamp()); //false  默认禁止
+    console.log(linearScale(30));  //300
+
+    linearScale.clamp(true);
+    console.log(linearScale(30)); //100
+
+    //启动闭合，超出值域的边界，则只能返回边界的值
+
+
+
+</script>
+</body>
+</html>
