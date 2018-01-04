@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    var svg = d3.select('body').append('svg').attr({'width':1000,'height':1000});
+    var xAxis = d3.svg.axis()
+        .scale(d3.scale.identity().domain([0,500]));  //指定轴的比例尺为恒等比例尺
+    svg.append('g')
+        .attr('transform','translate(10,100)')
+        .call(xAxis);
+
+</script>
+</body>
+</html>

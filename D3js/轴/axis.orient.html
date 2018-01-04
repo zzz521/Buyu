@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //axis.orient(orientation)
+    //如果指定了参数，则设置该轴的方位，否则返回坐标轴的方位，默认为底部
+
+
+    var svg = d3.select('body').append('svg').attr({'width':1000,'height':1000});
+    var linearScale = d3.scale.linear()
+        .domain([0,10])
+        .range([0,100]);
+    var orient = ['left','right','top','bottom'];
+    var axis = d3.range(orient.length).map(function (i) {
+        return d3.svg.axis().scale(linearScale).orient(orient[i]);
+    });
+
+    svg.append('g').attr('transform', 'translate(100, 120)').call(axis[0]);
+    svg.append('g').attr('transform', 'translate(240, 120)').call(axis[1]);
+    svg.append('g').attr('transform', 'translate(120, 100)').call(axis[2]);
+    svg.append('g').attr('transform', 'translate(120, 240)').call(axis[3]);
+</script>
+</body>
+</html>

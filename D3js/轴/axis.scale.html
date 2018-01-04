@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    var svg = d3.select('body').append('svg').attr({'width':1000,'height':1000});
+    var xAxis = d3.svg.axis()
+        .scale(d3.time.scale().domain([new Date(2015,8,1),new Date(2016,1,1)]).range([0,1000]));
+    svg.append('g')
+        .call(xAxis);
+
+    //axis.scale(scale)
+    //指定该轴的比例尺为scale
+    //否则返回当前的比例尺
+</script>
+</body>
+</html>

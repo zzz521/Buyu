@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .domain,
+        .tick path,
+        .tick line {
+            fill: none;
+            stroke: #000;
+            stroke-width: 2;
+            shape-rendering: crispEdges;
+        }
+        body{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //axis.tickSize([inner,outer])
+    //如果没有指定内外刻度线的大小，则返回当前的大小，否则设置为指定的值
+
+    var width=1200,height=500;
+
+    //向body标签增加svg子元素
+    var svg = d3.select('body')
+        .append('svg')
+        .attr({
+            "width": width,
+            "height": height,
+        });
+
+    //构造序数比例尺
+    var linearScale = d3.scale
+        .linear()
+        .domain([0,10])
+        .range([0, width/2]);
+
+    //轴
+    var xAxis=d3.svg.axis()
+        .scale(linearScale)
+        .orient("bottom");
+
+    //设置轴的内外刻度长度为20像素，反方向50像素
+    xAxis.tickSize(20,-50);
+    //外刻度线是最外侧的刻度线
+    //刻度线可以设置负值
+    //绘制轴
+    svg.append('g')
+        .attr('transform', 'translate(50, 220)')
+        .call(xAxis);
+
+    //同理
+    //axis.innerTickSize(size)
+    //axis.outerTickSize(size)
+
+
+</script>
+</body>
+</html>

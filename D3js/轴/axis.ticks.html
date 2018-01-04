@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+//axis.ticks([arguments...])
+    //设置刻度的数量
+//如果定义域不能被整除，则显示接近的刻度数量
+//优先级小于tickValues
+    var svg = d3.select('body')
+        .append('svg')
+        .attr({
+            'width':2000,
+            'height':2000
+        });
+
+    var timeScale = d3.time.scale().domain([new Date(2010,1,1),new Date(2020,1,1)]).range([0,1900]);
+    var logScale = d3.scale.log().domain([1,1000000]).range([0,1900]);
+    var linearScale = d3.scale.linear().domain([0, 10]).range([0,1900]);
+
+    var timeAxis = d3.svg.axis().scale(timeScale).orient('bottom');
+    var logAxis=d3.svg.axis().scale(logScale).orient("bottom");
+    var linearAxis=d3.svg.axis().scale(linearScale).orient("bottom");
+
+
+    //设置轴的刻度
+    timeAxis.ticks(d3.time.year,2);//每两年一个刻度
+    logAxis.ticks(10,'e'); //显示大约每10个指数刻度
+    linearAxis.ticks(20); //显示大约20个刻度
+
+    //绘制轴
+    svg.append('g').attr('transform', 'translate(50, 100)').call(timeAxis);
+    svg.append('g').attr('transform', 'translate(50, 160)').call(logAxis);
+    svg.append('g').attr('transform', 'translate(50, 220)').call(linearAxis);
+</script>
+</body>
+</html>

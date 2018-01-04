@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+    //axis.tickValues([values])
+    //返回所有的刻度值或指定刻度值为values数组
+    //values为null时会清空之前设置的刻度值
+
+    var svg = d3.select('body')
+        .append('svg')
+        .attr({
+            'width':2000,
+            'height':2000
+        });
+    var values = ['A','B','C','D','E'];
+    var Scale = d3.scale.ordinal()
+        .domain(values)
+        .rangePoints([0,1000]);
+
+    var xAxis = d3.svg.axis()
+        .scale(Scale)
+        .tickValues(values);
+
+    svg.append('g')
+        .call(xAxis);
+</script>
+</body>
+</html>
