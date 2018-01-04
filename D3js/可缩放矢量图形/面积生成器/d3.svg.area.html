@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="d3.js"></script>
+<script>
+//使用默认的x，y0和y1访问器函数和线性插值器构造出一个新的面积生成器，返回的函数用于生成不封闭的路径字符串
+    //x可以表示x轴的取值，y0理解为图形是基于哪条水平线的，即基线
+    //y1理解为另一条水平线，
+//生成面积图的数据
+    var data = [
+        {x: 100, y: 100},	{x: 150, y: 150},	{x: 200, y: 100},
+        {x: 250, y: 150},	{x: 300, y: 100},	{x: 350, y: 150}
+    ];
+    //追加svg元素
+    var svg = d3.select("body").append("svg")
+//        .datum(data) //给svg元素绑定数据
+        .attr("width", 960)
+        .attr("height", 500)
+        .append("g")
+//        .attr("transform", "translate(10,10)");
+//    //新建面积生成器
+    var area = d3.svg.area()
+        .x(function (d) { return d.x; })//x坐标  x从100开始到350
+        .y1(function(d) { return d.y; })//顶线  x轴的点所对应的y的值
+        .y0(300);//基线           从左上角为0 开始 由300这条基线 和x从0到350的竖直线  和y坐标的折线组成的面积
+    //追加路径数据
+    svg.append("path")
+        .attr("fill", "steelblue")
+        .attr("d", area(data));
+</script>
+</body>
+</html>
