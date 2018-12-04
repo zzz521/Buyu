@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //解构允许赋默认值
+
+        var [a,b=2] = [1];
+        console.log(a,b); //1 2
+
+        var [foo=true] = [];
+        console.log(foo); //true
+
+        //只有当被赋值的值===undefined时，默认值才会生效
+
+        var [x,y=2] = ['a',undefined];
+        console.log(x,y); //a 2
+
+        var [x,y=2] = ['a',null];
+        console.log(x,y); //a null
+
+
+        //如果默认值是一个表达式，这个表达式是惰性求值的，就是用到的时候才会求值
+        function sum(){
+            return 1+2;
+        }
+        var [num=sum()] = [1];
+        console.log(num);//1
+        //因为num能直接取到值，所以函数sum不会运行
+        
+
+        function sum(){
+            return 1+2;
+        }
+        var [num=sum()] = [];
+        console.log(num);//3
+
+        //默认值可以引用解构赋值的其他变量，但该变量必须已经声明
+
+        var [x1=1,x2=x1] = [];
+        console.log(x1,x2);//1 1
+        var [x3,x4=x3] = [4];
+        console.log(x3,x4);//4 4
+        var [x5=x6,x6=3] = [];
+        console.log(x5,x6); //undefined 3;
+
+        //数组的解构还可以这么写
+
+        var arr = [22,33,44];
+        var [b1,b2] = arr;
+        console.log(b1,b2); //22 33
+    </script>
+</body>
+</html>

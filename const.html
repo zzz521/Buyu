@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const用来声明一个只读的常量，一旦声明就不可以改变。
+        const a = 10;
+        // a = 11;//报错 Assignment to constant variable
+
+        //不可改变意味着一旦声明就要初始化将其赋值，不能留待以后赋值否则会报错
+        // const b;//Missing initializer in const declaration
+
+        //const和let一样，只在当前声明的块作用域内有效
+        {
+            const c = 1;
+        }
+        // console.log(c);//c is not defined
+
+        //const也不存在变量提升
+        // console.log(d);//d is not defined
+        const d = 0;
+
+        //const也存在暂时性死区
+        //进入当前作用域后在const声明前不可调用，否则会出错
+        
+
+        //const也不可以重复声明
+        let num1 = 1;
+        var num2 = 2;
+
+        // const num1 = 3;//报错
+        // const num2 = 4;//报错
+
+
+        //const实际上保证的不是变量的值不能变动,而是变量指向的内存地址保存的数据不会变
+        //对于简单类型的数据如字符串数值布尔型等,值就保存在变量指向的内存地址中
+        //而复合类型的数据,对象和数组等,变量指向的内存地址是一个指向指定数据的指针
+        //const只能保证这个指针是固定的,指针指向的数据结构是不是可变的就不可控制了,如下例子
+        const obj1 = {};
+        obj1.name = 'zhangsan';
+        console.log(obj1);
+        obj1.name = 'lisi';
+        console.log(obj1);
+    </script>
+</body>
+</html>

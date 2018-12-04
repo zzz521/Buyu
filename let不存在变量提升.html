@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // console.log(a); //a is not defined -- Error
+    console.log(b); //undefined
+    var b = 2;
+    //这就是变量提升，变量提升即将变量声明提升到它所在作用域的最上方
+    // 这段代码可以表示为 
+                //var b；
+                //console.log(b);
+                //b = 2;
+
+    console.log(c);
+    let c = 3;  //c is not defined -- Error
+    //let 不存在变量提升
+
+
+    var arr1 = [];
+    for(var i=0; i<=10;i++){
+        var aa = i;
+        arr1[i] = function(){
+            console.log(aa);
+        }
+    }
+    console.log(i); //11
+    arr1[5](); //10
+    //因为不是立即执行函数，for循环结束之后，变量aa已经等于10了,他是个全局变量
+
+
+    var arr2= [];
+    for(var j=0; j<=10;j++){
+        let bb = j;
+        arr2[j] = function(){
+            console.log(bb);
+        }
+    }
+    console.log(j); //11
+    arr2[5](); //5
+    //用let定义的变量只在它的作用域内有效 
+    //等同于
+    //{
+    // let bb = 5;
+    // arr2[5] = function(){
+    //    console.log(bb);
+    //  }
+    //}
+    //{
+    // let bb = 6;
+    // arr2[6] = function(){
+    //    console.log(bb);
+    //  }
+    //}
+    //每一个区域互不影响
+  
+</script>
+</body>
+</html>

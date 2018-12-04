@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //es5中，函数只能在全局作用域或者函数作用域中声明，不能在块级作用域中声明
+        //而es6规定，允许函数在块作用域中声明，函数声明语句类似于let，在块作用域外不可引用
+
+
+        //如下例子
+        function f(){
+            console.log(1);
+        }
+
+    
+       
+        // (function(){
+        //     if(false){
+        //         function f(){
+        //             console.log(2);
+        //         }
+        //     }
+        //     f();//报错
+        // }());  
+        //报错原因在于浏览器的实现可以不遵守上面的规定，有自己的行为方式
+        //在浏览器的ES6环境中，块级作用域声明的函数，类似于var声明的变量
+
+        //上述代码实际运行如下
+        // (function(){
+        //     var f = undefined;
+        //     if(false){
+        //         function f(){
+        //             console.log(2);
+        //         }
+        //     }
+        //     f();//报错
+        // }());  
+        //浏览器将块级作用域声明的函数当作var f来使用，因此引用f()会出现f not a function的错误
+
+
+
+        //应避免在块级作用域中声明函数，或者用函数表达式来声明，如下
+        (function(){
+            if(false){
+                let f = function(){ //不会提升
+                    console.log(2);
+                }
+            }
+            f();//1
+        }()); 
+
+
+        //es6块级作用域声明函数只能在使用大括号的时候会成立
+
+        if(true){
+            function a(){console.log(0)}; //不报错
+        }
+    
+
+        if(true)
+            function b(){console.log(0)}; //报错
+        
+    </script>
+</body>
+</html>

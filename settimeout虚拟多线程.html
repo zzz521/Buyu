@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1111);
+        setTimeout(function(){
+            console.log(2222);
+        },5000);
+        console.log(3333);
+        setTimeout('console.log(4444)',6000);
+        setTimeout('console.log(5555)',10);
+        
+        //单线程文档的执行是从上到下的，执行完上一步操作才能执行下一步操作
+        //setTimeout可以模拟伪多线程，将任务放置到事件队列中执行，然后执行文档下面的内容
+        //事件队列中的事件，只有当主文档执行完，主线程才会执行事件队列中的事件
+        //并且多个事件队列中的事件是同时开始执行的
+    </script>
+</body>
+</html>

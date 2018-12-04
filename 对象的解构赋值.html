@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var {foo,bar} = {foo:'zs',bar:'lis'};
+        console.log(foo,bar); //zs lis
+        //数组的元素是按顺序排列的，变量被赋值是也按顺序
+        //而对象的解构赋值并不需要，变量必须于属性同名才可以被赋值
+        var {x,y} = {y:1,x:2};
+        console.log(x,y);//2 1
+
+        //如果没有同名的属性，则取不到值，最后等于undefined
+        var {p} = {b:1};
+        console.log(p);//undefined
+
+    
+    
+        //如果变量和属性名不一致，必须这么写
+        var {add:f,sum:d} = {add:1,sum:2};
+        console.log(f,d);//1 2
+        //数组一样，解构可以用于嵌套解构的对象
+
+        var obj = {p:['hello',{y:'world'}]};
+        var {p:[x,{y}]} = obj;
+        console.log(x,y);//hello world
+        console.log(p);//undefined
+        //这时候p是模式，不是变量，不会被解构
+        //解构p应该这么写
+       
+        var {p,p:[x,{y}]} = obj;
+        console.log(p);// ["hello", {…}]
+
+        //下面是另一个例子
+        const node = {
+        loc: {
+            start: {
+            line: 1,
+            column: 5
+            }
+        }
+        };
+
+        let { loc, loc: { start }, loc: { start: { line }} } = node;
+        console.log(line) // 1
+        console.log(loc)  // Object {start: Object}
+        console.log(start) // Object {line: 1, column: 5}
+        //当对象解构等号左面和右面有相同的属性名时，右面的属性值会赋予给左面的属性值，属性名不会被赋值
+        //对象的解构嵌套如果想要给左面的属性名赋值时，应该用逗号隔开
+        //类似于
+        var {add,sum:d} = {add:1,sum:2};
+        console.log(f,d);//1 2
+        //对象也可以不完全解构
+
+        //对象的解构也可以指定默认值,生效条件等号右边对象的属性值严格===undefined
+        var {x = 3} = {};
+        console.log(x) // 3
+
+        var {x, y = 5} = {x: 1};
+        console.log(x) // 1
+        console.log(y) // 5
+
+
+        //如果解构模式是嵌套的对象，而且子对象所在的父属性不存在，那么将会报错。
+        // 报错
+        // var {foo: {bar}} = {baz: 'baz'};
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6中新增了块级作用域，块作用域由{}包括，if和for中的{}也算块级作用域
+        {
+            var a = 10;
+        }
+        console.log(a);//10  var定义的变量可以跨块级作用域访问到
+
+        
+        function A (){
+            var Aa = 10;
+        }
+        // console.log(Aa);//Aa is not defined  var定义的变量不可以跨函数作用域访问
+        
+        //if和for循环的变量外部可以访问，因此属于块作用域，不属于函数作用域
+
+    
+        function f1(){
+            let a = 10;
+            // console.log(b);// b is not defined  用let在块级作用域内定义变量，外部访问不到
+            //let块作用域里访问，不能跨块访问，也不能跨函数访问
+            if(true){
+                let a = 5;
+                let b = 1;
+            }
+            console.log(a);//10  let定义的变量只作用于当前作用域
+            // console.log(b);// b is not defined 
+        }
+
+        f1();
+
+        //用let和块作用域可以减少var定义变量时出现的错误
+
+        {{{{{let insane = 'Hello World'}}}}};
+        //块级作用域允许任意嵌套
+
+        let num = 3;
+        {{
+            let num = 1;
+            {
+                let num = 2;
+                console.log(num);
+                //内层的作用域可以定义外层作用域的同名变量，不会被覆盖 
+            }
+        }}
+
+        //块级作用域的出现，可以替代某些立即执行函数不是必要的了
+        (function(){
+            var tmp = 1;
+        }());
+
+        {
+            let tmp;
+        }
+        //直接用块作用域用let定义变量，不会造成变量混淆的问题
+    </script>
+</body>
+</html>

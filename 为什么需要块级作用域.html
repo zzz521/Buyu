@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //内层变量覆盖外层变量
+    var time = new Date();
+    console.log(time);
+    
+    function func(){
+        console.log(time);
+        if(false){
+            var time = 'Hello';
+        }
+    }
+    console.log(time);
+
+    func(); //undefined
+    //js中只有全局作用域和函数作用域
+    //原因是变量提升，将time变量提升到函数func作用域最顶端
+    //if没有作用域，如果if是在script标签中，则其中定义的变量是全局变量
+    //如果if在函数作用域中，定义的变量是函数的全局变量
+
+    if(true){
+        var a = 10;
+    }
+    console.log(a);//10
+
+    function f(){
+        var b = 20;
+    }
+    // console.log(b); //b is not defined;
+
+
+
+
+    //用来计数的i变量泄露为全局变量
+    var str = 'hello'
+    for(var i=0;i<str.length;i++){
+        console.log(str[i]);
+    } 
+    console.log(i); //10
+    
+    </script>
+</body>
+</html>
